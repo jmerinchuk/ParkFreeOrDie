@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBA63B392375E11800181033 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA63B382375E11800181033 /* CreateAccountViewController.swift */; };
 		CE6E47E4236CED0C001EDD9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E47E3236CED0C001EDD9D /* AppDelegate.swift */; };
 		CE6E47E6236CED0C001EDD9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E47E5236CED0C001EDD9D /* SceneDelegate.swift */; };
 		CE6E47E8236CED0C001EDD9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E47E7236CED0C001EDD9D /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BBA63B382375E11800181033 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		CE6E47E0236CED0C001EDD9D /* ParkFreeOrDie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkFreeOrDie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6E47E3236CED0C001EDD9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6E47E5236CED0C001EDD9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				CE6E47F1236CED0E001EDD9D /* LaunchScreen.storyboard */,
 				CE6E47F4236CED0E001EDD9D /* Info.plist */,
 				CE6E47EC236CED0C001EDD9D /* ParkFreeOrDie.xcdatamodeld */,
+				BBA63B382375E11800181033 /* CreateAccountViewController.swift */,
 			);
 			path = ParkFreeOrDie;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBA63B392375E11800181033 /* CreateAccountViewController.swift in Sources */,
 				CE6E47E8236CED0C001EDD9D /* ViewController.swift in Sources */,
 				CE6E47EE236CED0C001EDD9D /* ParkFreeOrDie.xcdatamodeld in Sources */,
 				CE6E47E4236CED0C001EDD9D /* AppDelegate.swift in Sources */,
@@ -220,7 +224,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +278,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
