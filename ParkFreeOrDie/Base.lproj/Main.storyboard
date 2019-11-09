@@ -1,46 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XRr-AC-1ez">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XRr-AC-1ez">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Application Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oq-ch-oZL">
-                                <rect key="frame" x="20" y="338" width="374" height="31.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Park Free or Die" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oq-ch-oZL">
+                                <rect key="frame" x="20" y="338" width="374" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="glj-IG-Zlm">
-                                <rect key="frame" x="20" y="389.5" width="374" height="34"/>
+                                <rect key="frame" x="20" y="390" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8cr-fp-nLw">
-                                <rect key="frame" x="20" y="443.5" width="374" height="34"/>
+                                <rect key="frame" x="20" y="444" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKb-uF-dcv">
-                                <rect key="frame" x="20" y="497.5" width="374" height="33"/>
+                                <rect key="frame" x="20" y="498" width="374" height="33"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="YQX-IR-9Ri" kind="show" id="mds-EB-SYn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiu-f5-5iH">
-                                <rect key="frame" x="20" y="550.5" width="374" height="30"/>
+                                <rect key="frame" x="20" y="551" width="374" height="30"/>
                                 <state key="normal" title="Create an account"/>
                                 <connections>
                                     <segue destination="DhO-md-KJX" kind="show" id="ezU-si-m45"/>
@@ -71,12 +74,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="87.723214285714278"/>
+            <point key="canvasLocation" x="926" y="88"/>
         </scene>
-        <!--Create account-->
+        <!--Create Account-->
         <scene sceneID="kYg-H2-N73">
             <objects>
-                <viewController id="DhO-md-KJX" customClass="CreateAccountViewController" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DhO-md-KJX" customClass="LoginVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uUE-vB-WRz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,8 +148,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="License Plate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JEd-V5-Z84">
-                                <rect key="frame" x="20" y="238" width="374" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="License Plate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JEd-V5-Z84">
+                                <rect key="frame" x="20" y="270" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -195,11 +198,114 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3iC-rh-ajQ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create account" id="whU-ko-EtS"/>
+                    <navigationItem key="navigationItem" title="Create Account" id="whU-ko-EtS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ru-gM-0NP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1857" y="88"/>
+            <point key="canvasLocation" x="1703" y="496"/>
+        </scene>
+        <!--Customer Support-->
+        <scene sceneID="GCD-ye-YgO">
+            <objects>
+                <viewController title="Customer Support" id="5MP-HQ-Hwx" customClass="SupportVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dzd-v4-1Xg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Lmp-K9-e9O"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Support" image="phone.down" catalog="system" id="Bfs-cd-GHL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LqN-te-hbp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3214" y="-188"/>
+        </scene>
+        <!--Parking Receipts-->
+        <scene sceneID="aEu-My-X4v">
+            <objects>
+                <tableViewController title="Parking Receipts" id="Vdo-l1-u9g" customClass="ReceiptTVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FYb-58-g3b">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell_receipt" textLabel="UXo-HI-XfD" detailTextLabel="WW8-3A-3gK" style="IBUITableViewCellStyleSubtitle" id="5Mf-Qi-24k" customClass="ReceiptCell" customModule="ParkFreeOrDie" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="75.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Mf-Qi-24k" id="7pe-LP-DiF">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="75.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UXo-HI-XfD">
+                                            <rect key="frame" x="20" y="12" width="43.5" height="28.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                            <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="highlightedColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WW8-3A-3gK">
+                                            <rect key="frame" x="20" y="42.5" width="56" height="19.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lblSubtitle" destination="WW8-3A-3gK" id="sib-23-mAx"/>
+                                    <outlet property="lblTitle" destination="UXo-HI-XfD" id="pX3-4o-Yuz"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Vdo-l1-u9g" id="FGd-W9-DiM"/>
+                            <outlet property="delegate" destination="Vdo-l1-u9g" id="2kF-V3-AcF"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Receipts" image="pencil.and.ellipsis.rectangle" catalog="system" id="3S4-nm-4jV"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UWH-S2-1Wg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2477" y="238"/>
+        </scene>
+        <!--Add Parking-->
+        <scene sceneID="0fD-ug-uIh">
+            <objects>
+                <viewController id="7Rc-d3-eWi" customClass="ParkingVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="22j-6L-0Nc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Z8q-sN-nY7"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Add Parking" image="car" catalog="system" id="o2e-fx-bx3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZLf-04-l08" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2477" y="-581"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="21h-gD-lPU">
+            <objects>
+                <tabBarController id="YQX-IR-9Ri" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="r5c-Dt-J4G"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="T08-1T-w8u">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="7Rc-d3-eWi" kind="relationship" relationship="viewControllers" id="EnM-6t-2Qp"/>
+                        <segue destination="Vdo-l1-u9g" kind="relationship" relationship="viewControllers" id="Yd3-yS-vY5"/>
+                        <segue destination="5MP-HQ-Hwx" kind="relationship" relationship="viewControllers" id="Baw-hx-U73"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YZo-cb-Dmf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1704" y="-188"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uMt-nm-90H">
@@ -217,7 +323,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sKR-3j-4XU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="87.723214285714278"/>
+            <point key="canvasLocation" x="101" y="88"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="car" catalog="system" width="64" height="46"/>
+        <image name="pencil.and.ellipsis.rectangle" catalog="system" width="64" height="40"/>
+        <image name="phone.down" catalog="system" width="64" height="28"/>
+    </resources>
 </document>

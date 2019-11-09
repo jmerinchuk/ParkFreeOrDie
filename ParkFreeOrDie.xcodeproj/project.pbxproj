@@ -7,27 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BBA63B392375E11800181033 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA63B382375E11800181033 /* CreateAccountViewController.swift */; };
 		CE6E47E4236CED0C001EDD9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E47E3236CED0C001EDD9D /* AppDelegate.swift */; };
 		CE6E47E6236CED0C001EDD9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E47E5236CED0C001EDD9D /* SceneDelegate.swift */; };
-		CE6E47E8236CED0C001EDD9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E47E7236CED0C001EDD9D /* ViewController.swift */; };
 		CE6E47EB236CED0C001EDD9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6E47E9236CED0C001EDD9D /* Main.storyboard */; };
 		CE6E47EE236CED0C001EDD9D /* ParkFreeOrDie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE6E47EC236CED0C001EDD9D /* ParkFreeOrDie.xcdatamodeld */; };
 		CE6E47F0236CED0E001EDD9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6E47EF236CED0E001EDD9D /* Assets.xcassets */; };
 		CE6E47F3236CED0E001EDD9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6E47F1236CED0E001EDD9D /* LaunchScreen.storyboard */; };
+		CEC3119D237642A600ED357B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3119C237642A600ED357B /* LoginVC.swift */; };
+		CEC3119F237646B500ED357B /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3119E237646B500ED357B /* SupportVC.swift */; };
+		CEC311A32376499300ED357B /* ParkingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC311A22376499300ED357B /* ParkingVC.swift */; };
+		CEC311A723764AAC00ED357B /* ReceiptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC311A623764AAC00ED357B /* ReceiptCell.swift */; };
+		CEC311A923764C5700ED357B /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC311A823764C5700ED357B /* Receipt.swift */; };
+		CEC311AD23764EB700ED357B /* ReceiptTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC311AC23764EB700ED357B /* ReceiptTVC.swift */; };
+		CEC311B023764F3100ED357B /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC311AF23764F3100ED357B /* CreateAccountVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BBA63B382375E11800181033 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		CE6E47E0236CED0C001EDD9D /* ParkFreeOrDie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkFreeOrDie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6E47E3236CED0C001EDD9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6E47E5236CED0C001EDD9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE6E47E7236CED0C001EDD9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE6E47EA236CED0C001EDD9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE6E47ED236CED0C001EDD9D /* ParkFreeOrDie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ParkFreeOrDie.xcdatamodel; sourceTree = "<group>"; };
 		CE6E47EF236CED0E001EDD9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE6E47F2236CED0E001EDD9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE6E47F4236CED0E001EDD9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEC3119C237642A600ED357B /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		CEC3119E237646B500ED357B /* SupportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportVC.swift; sourceTree = "<group>"; };
+		CEC311A22376499300ED357B /* ParkingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingVC.swift; sourceTree = "<group>"; };
+		CEC311A623764AAC00ED357B /* ReceiptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCell.swift; sourceTree = "<group>"; };
+		CEC311A823764C5700ED357B /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		CEC311AC23764EB700ED357B /* ReceiptTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTVC.swift; sourceTree = "<group>"; };
+		CEC311AF23764F3100ED357B /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,13 +72,18 @@
 			children = (
 				CE6E47E3236CED0C001EDD9D /* AppDelegate.swift */,
 				CE6E47E5236CED0C001EDD9D /* SceneDelegate.swift */,
-				CE6E47E7236CED0C001EDD9D /* ViewController.swift */,
 				CE6E47E9236CED0C001EDD9D /* Main.storyboard */,
+				CEC3119C237642A600ED357B /* LoginVC.swift */,
+				CEC311AF23764F3100ED357B /* CreateAccountVC.swift */,
+				CEC311AC23764EB700ED357B /* ReceiptTVC.swift */,
+				CEC311A22376499300ED357B /* ParkingVC.swift */,
+				CEC311A623764AAC00ED357B /* ReceiptCell.swift */,
+				CEC311A823764C5700ED357B /* Receipt.swift */,
+				CEC3119E237646B500ED357B /* SupportVC.swift */,
 				CE6E47EF236CED0E001EDD9D /* Assets.xcassets */,
 				CE6E47F1236CED0E001EDD9D /* LaunchScreen.storyboard */,
 				CE6E47F4236CED0E001EDD9D /* Info.plist */,
 				CE6E47EC236CED0C001EDD9D /* ParkFreeOrDie.xcdatamodeld */,
-				BBA63B382375E11800181033 /* CreateAccountViewController.swift */,
 			);
 			path = ParkFreeOrDie;
 			sourceTree = "<group>";
@@ -144,11 +159,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBA63B392375E11800181033 /* CreateAccountViewController.swift in Sources */,
-				CE6E47E8236CED0C001EDD9D /* ViewController.swift in Sources */,
+				CEC311A923764C5700ED357B /* Receipt.swift in Sources */,
+				CEC3119D237642A600ED357B /* LoginVC.swift in Sources */,
 				CE6E47EE236CED0C001EDD9D /* ParkFreeOrDie.xcdatamodeld in Sources */,
 				CE6E47E4236CED0C001EDD9D /* AppDelegate.swift in Sources */,
+				CEC311A723764AAC00ED357B /* ReceiptCell.swift in Sources */,
 				CE6E47E6236CED0C001EDD9D /* SceneDelegate.swift in Sources */,
+				CEC311AD23764EB700ED357B /* ReceiptTVC.swift in Sources */,
+				CEC3119F237646B500ED357B /* SupportVC.swift in Sources */,
+				CEC311B023764F3100ED357B /* CreateAccountVC.swift in Sources */,
+				CEC311A32376499300ED357B /* ParkingVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

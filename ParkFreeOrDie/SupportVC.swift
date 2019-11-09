@@ -2,20 +2,21 @@
  * Project: ParkFreeOrDie
  * Programmer: Jeremy Clark
  * Programmer: Jayce Merinchuk
- * File: ViewController.swift
+ * File: SupportVC.swift
  * Desccription:
  *
  * Sources:
+ *
  *****************************************************************/
 
 // Imports
 import UIKit
 
 /*****************************************************************
- * Class:
+ * Class: SupportVC : UIViewController
  * Description:
 *****************************************************************/
-class ViewController: UIViewController {
+class SupportVC : UIViewController {
 
     // Class Variables
     
@@ -24,10 +25,11 @@ class ViewController: UIViewController {
     
     
     /*************************************************************
-     * Method:
-     * Description:
+     * Method: viewDidLoad()
+     * Description: Initial Loaded Function
     *************************************************************/
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 }
+
