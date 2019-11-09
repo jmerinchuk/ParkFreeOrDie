@@ -2,7 +2,7 @@
  * Project: ParkFreeOrDie
  * Programmer: Jeremy Clark
  * Programmer: Jayce Merinchuk
- * File: Receipt.swift
+ * File: User.swift
  * Desccription:
  *
  * Sources:
@@ -16,16 +16,17 @@ import Foundation
  * Class: Receipt
  * Description: Receipt Object
 *****************************************************************/
-class Receipt {
+class User {
     
     // Class Variables
     
     
     /*************************************************************
      * Method: init()
-     * Description: Initializer for Receipt Object
+     * Description: Initializer for User Object
     *************************************************************/
     init() {
         
     }
 }
+

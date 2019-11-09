@@ -20,6 +20,9 @@
 		CEC311A923764C5700ED357B /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC311A823764C5700ED357B /* Receipt.swift */; };
 		CEC311AD23764EB700ED357B /* ReceiptTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC311AC23764EB700ED357B /* ReceiptTVC.swift */; };
 		CEC311B023764F3100ED357B /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC311AF23764F3100ED357B /* CreateAccountVC.swift */; };
+		CEC311B4237653CF00ED357B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC311B3237653CF00ED357B /* User.swift */; };
+		CEC311B62376545400ED357B /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC311B52376545400ED357B /* MapVC.swift */; };
+		CEC311BA2376580600ED357B /* LocationSearchTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC311B92376580600ED357B /* LocationSearchTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		CEC311A823764C5700ED357B /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		CEC311AC23764EB700ED357B /* ReceiptTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTVC.swift; sourceTree = "<group>"; };
 		CEC311AF23764F3100ED357B /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
+		CEC311B3237653CF00ED357B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CEC311B52376545400ED357B /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		CEC311B92376580600ED357B /* LocationSearchTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +83,11 @@
 				CEC311AF23764F3100ED357B /* CreateAccountVC.swift */,
 				CEC311AC23764EB700ED357B /* ReceiptTVC.swift */,
 				CEC311A22376499300ED357B /* ParkingVC.swift */,
+				CEC311B52376545400ED357B /* MapVC.swift */,
+				CEC311B92376580600ED357B /* LocationSearchTVC.swift */,
 				CEC311A623764AAC00ED357B /* ReceiptCell.swift */,
 				CEC311A823764C5700ED357B /* Receipt.swift */,
+				CEC311B3237653CF00ED357B /* User.swift */,
 				CEC3119E237646B500ED357B /* SupportVC.swift */,
 				CE6E47EF236CED0E001EDD9D /* Assets.xcassets */,
 				CE6E47F1236CED0E001EDD9D /* LaunchScreen.storyboard */,
@@ -160,6 +169,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEC311A923764C5700ED357B /* Receipt.swift in Sources */,
+				CEC311BA2376580600ED357B /* LocationSearchTVC.swift in Sources */,
+				CEC311B62376545400ED357B /* MapVC.swift in Sources */,
 				CEC3119D237642A600ED357B /* LoginVC.swift in Sources */,
 				CE6E47EE236CED0C001EDD9D /* ParkFreeOrDie.xcdatamodeld in Sources */,
 				CE6E47E4236CED0C001EDD9D /* AppDelegate.swift in Sources */,
@@ -169,6 +180,7 @@
 				CEC3119F237646B500ED357B /* SupportVC.swift in Sources */,
 				CEC311B023764F3100ED357B /* CreateAccountVC.swift in Sources */,
 				CEC311A32376499300ED357B /* ParkingVC.swift in Sources */,
+				CEC311B4237653CF00ED357B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

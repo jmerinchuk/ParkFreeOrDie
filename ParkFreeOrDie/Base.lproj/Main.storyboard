@@ -10,7 +10,7 @@
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="BYZ-38-t0r" customClass="LoginVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,7 +79,7 @@
         <!--Create Account-->
         <scene sceneID="kYg-H2-N73">
             <objects>
-                <viewController id="DhO-md-KJX" customClass="LoginVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateAccountVC" id="DhO-md-KJX" customClass="CreateAccountVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uUE-vB-WRz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,7 +207,7 @@
         <!--Customer Support-->
         <scene sceneID="GCD-ye-YgO">
             <objects>
-                <viewController title="Customer Support" id="5MP-HQ-Hwx" customClass="SupportVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SupportVC" title="Customer Support" id="5MP-HQ-Hwx" customClass="SupportVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dzd-v4-1Xg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -218,12 +218,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LqN-te-hbp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3214" y="-188"/>
+            <point key="canvasLocation" x="3265" y="-188"/>
         </scene>
         <!--Parking Receipts-->
         <scene sceneID="aEu-My-X4v">
             <objects>
-                <tableViewController title="Parking Receipts" id="Vdo-l1-u9g" customClass="ReceiptTVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ReceiptTVC" title="Parking Receipts" id="Vdo-l1-u9g" customClass="ReceiptTVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FYb-58-g3b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -269,23 +269,114 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UWH-S2-1Wg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2477" y="238"/>
+            <point key="canvasLocation" x="2477" y="403"/>
         </scene>
-        <!--Add Parking-->
+        <!--Parking-->
         <scene sceneID="0fD-ug-uIh">
             <objects>
-                <viewController id="7Rc-d3-eWi" customClass="ParkingVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ParkingVC" id="7Rc-d3-eWi" customClass="ParkingVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="22j-6L-0Nc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTw-vV-ssh">
+                                <rect key="frame" x="0.0" y="108" width="414" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Search Nearby Parking Facilities">
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ahw-X2-KHe" kind="show" id="dlx-zE-vwW"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VTw-vV-ssh" firstAttribute="leading" secondItem="Z8q-sN-nY7" secondAttribute="leading" id="NQx-2c-bKs"/>
+                            <constraint firstItem="VTw-vV-ssh" firstAttribute="top" secondItem="Z8q-sN-nY7" secondAttribute="top" constant="20" id="OO9-uc-fQM"/>
+                            <constraint firstItem="Z8q-sN-nY7" firstAttribute="trailing" secondItem="VTw-vV-ssh" secondAttribute="trailing" id="mgo-p0-UgI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Z8q-sN-nY7"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Add Parking" image="car" catalog="system" id="o2e-fx-bx3"/>
+                    <tabBarItem key="tabBarItem" title="Parking" image="car" catalog="system" id="o2e-fx-bx3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLf-04-l08" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2477" y="-581"/>
+            <point key="canvasLocation" x="2477" y="-875"/>
+        </scene>
+        <!--MapVC-->
+        <scene sceneID="Dkd-Of-CBf">
+            <objects>
+                <viewController storyboardIdentifier="MapVC" id="ahw-X2-KHe" customClass="MapVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sb7-Jf-6LB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BxU-yd-yYi">
+                                <rect key="frame" x="0.0" y="108" width="414" height="734"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="BxU-yd-yYi" firstAttribute="leading" secondItem="d1l-Cv-WO9" secondAttribute="leading" id="5tw-tA-61D"/>
+                            <constraint firstItem="d1l-Cv-WO9" firstAttribute="trailing" secondItem="BxU-yd-yYi" secondAttribute="trailing" id="8Hy-Ej-UJt"/>
+                            <constraint firstItem="BxU-yd-yYi" firstAttribute="top" secondItem="d1l-Cv-WO9" secondAttribute="top" constant="20" id="SjQ-hs-2Od"/>
+                            <constraint firstItem="d1l-Cv-WO9" firstAttribute="bottom" secondItem="BxU-yd-yYi" secondAttribute="bottom" constant="20" id="Us4-Md-7tx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="d1l-Cv-WO9"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5be-Kb-4uc"/>
+                    <connections>
+                        <outlet property="mapView" destination="BxU-yd-yYi" id="FXT-hn-d3F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hHX-aZ-oKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3265" y="-875"/>
+        </scene>
+        <!--Location SearchTVC-->
+        <scene sceneID="L4H-ki-dqJ">
+            <objects>
+                <tableViewController storyboardIdentifier="LocationSearchTVC" id="Wge-Gz-97j" customClass="LocationSearchTVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tJ4-C5-dUy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="esg-lo-sPi" detailTextLabel="1Ph-i2-cND" style="IBUITableViewCellStyleSubtitle" id="ne6-CU-gdv">
+                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ne6-CU-gdv" id="ZGe-D8-q0P">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="esg-lo-sPi">
+                                            <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Ph-i2-cND">
+                                            <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Wge-Gz-97j" id="g13-Bd-2B7"/>
+                            <outlet property="delegate" destination="Wge-Gz-97j" id="ayl-p4-FHE"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vE1-wC-GKR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4052" y="-875"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="21h-gD-lPU">

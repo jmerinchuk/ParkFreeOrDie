@@ -6,13 +6,14 @@
         <attribute name="hoursParked" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="UserEntity" representedClassName="UserEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="carPlate" optional="YES" attributeType="String"/>
+        <attribute name="carPlateNumber" optional="YES" attributeType="String"/>
+        <attribute name="contactNumber" optional="YES" attributeType="String"/>
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="username" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="UserEntity" positionX="133.4296875" positionY="-37.8046875" width="128" height="103"/>
         <element name="ParkingEntity" positionX="-63" positionY="9" width="128" height="88"/>
+        <element name="UserEntity" positionX="133.4296875" positionY="-37.8046875" width="128" height="118"/>
     </elements>
 </model>

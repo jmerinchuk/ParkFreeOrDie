@@ -11,6 +11,8 @@
 
 // Imports
 import UIKit
+import Foundation
+import CoreData
 
 /*****************************************************************
  * Class: ReceiptTVC : UITableViewController
