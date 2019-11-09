@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE61F6942376629A0031F190 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61F6932376629A0031F190 /* AccountVC.swift */; };
+		CE61F696237669840031F190 /* ManualVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61F695237669840031F190 /* ManualVC.swift */; };
 		CE6E47E4236CED0C001EDD9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E47E3236CED0C001EDD9D /* AppDelegate.swift */; };
 		CE6E47E6236CED0C001EDD9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E47E5236CED0C001EDD9D /* SceneDelegate.swift */; };
 		CE6E47EB236CED0C001EDD9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6E47E9236CED0C001EDD9D /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE61F6932376629A0031F190 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
+		CE61F695237669840031F190 /* ManualVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualVC.swift; sourceTree = "<group>"; };
 		CE6E47E0236CED0C001EDD9D /* ParkFreeOrDie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkFreeOrDie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6E47E3236CED0C001EDD9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6E47E5236CED0C001EDD9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,7 +92,9 @@
 				CEC311A623764AAC00ED357B /* ReceiptCell.swift */,
 				CEC311A823764C5700ED357B /* Receipt.swift */,
 				CEC311B3237653CF00ED357B /* User.swift */,
+				CE61F6932376629A0031F190 /* AccountVC.swift */,
 				CEC3119E237646B500ED357B /* SupportVC.swift */,
+				CE61F695237669840031F190 /* ManualVC.swift */,
 				CE6E47EF236CED0E001EDD9D /* Assets.xcassets */,
 				CE6E47F1236CED0E001EDD9D /* LaunchScreen.storyboard */,
 				CE6E47F4236CED0E001EDD9D /* Info.plist */,
@@ -171,6 +177,7 @@
 				CEC311A923764C5700ED357B /* Receipt.swift in Sources */,
 				CEC311BA2376580600ED357B /* LocationSearchTVC.swift in Sources */,
 				CEC311B62376545400ED357B /* MapVC.swift in Sources */,
+				CE61F696237669840031F190 /* ManualVC.swift in Sources */,
 				CEC3119D237642A600ED357B /* LoginVC.swift in Sources */,
 				CE6E47EE236CED0C001EDD9D /* ParkFreeOrDie.xcdatamodeld in Sources */,
 				CE6E47E4236CED0C001EDD9D /* AppDelegate.swift in Sources */,
@@ -178,6 +185,7 @@
 				CE6E47E6236CED0C001EDD9D /* SceneDelegate.swift in Sources */,
 				CEC311AD23764EB700ED357B /* ReceiptTVC.swift in Sources */,
 				CEC3119F237646B500ED357B /* SupportVC.swift in Sources */,
+				CE61F6942376629A0031F190 /* AccountVC.swift in Sources */,
 				CEC311B023764F3100ED357B /* CreateAccountVC.swift in Sources */,
 				CEC311A32376499300ED357B /* ParkingVC.swift in Sources */,
 				CEC311B4237653CF00ED357B /* User.swift in Sources */,

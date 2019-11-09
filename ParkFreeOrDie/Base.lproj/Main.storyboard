@@ -202,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ru-gM-0NP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1703" y="496"/>
+            <point key="canvasLocation" x="1703" y="542"/>
         </scene>
         <!--Customer Support-->
         <scene sceneID="GCD-ye-YgO">
@@ -211,14 +211,60 @@
                     <view key="view" contentMode="scaleToFill" id="dzd-v4-1Xg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riH-85-pDf">
+                                <rect key="frame" x="20" y="763" width="374" height="30"/>
+                                <state key="normal" title="View Park Free Or Die Manual"/>
+                                <connections>
+                                    <segue destination="7RG-7S-1Tg" kind="show" id="Ssw-YJ-EhH"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Lmp-K9-e9O" firstAttribute="trailing" secondItem="riH-85-pDf" secondAttribute="trailing" constant="20" id="Ltu-Pt-phv"/>
+                            <constraint firstItem="riH-85-pDf" firstAttribute="leading" secondItem="Lmp-K9-e9O" secondAttribute="leading" constant="20" id="UeT-Zo-XRm"/>
+                            <constraint firstItem="Lmp-K9-e9O" firstAttribute="bottom" secondItem="riH-85-pDf" secondAttribute="bottom" constant="20" id="mFc-S8-nOI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Lmp-K9-e9O"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Support" image="phone.down" catalog="system" id="Bfs-cd-GHL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LqN-te-hbp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3265" y="-188"/>
+            <point key="canvasLocation" x="3264" y="-210"/>
+        </scene>
+        <!--Park Free Or Die Manual-->
+        <scene sceneID="hKo-bN-0UG">
+            <objects>
+                <viewController storyboardIdentifier="ManualVC" id="7RG-7S-1Tg" customClass="ManualVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IT2-h9-Jcs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Lry-Md-KYS"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Park Free Or Die Manual" id="zfZ-Ki-juf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mq3-Tc-ot6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4058" y="-210"/>
+        </scene>
+        <!--Account-->
+        <scene sceneID="xvr-BL-8SQ">
+            <objects>
+                <viewController storyboardIdentifier="AccountVC" id="GoD-L7-Ydt" customClass="AccountVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uTs-xQ-xks">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="nfZ-Ry-gA2"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Account" image="person" catalog="system" id="97l-Oq-1at"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7DQ-cI-gZw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2477" y="-210"/>
         </scene>
         <!--Parking Receipts-->
         <scene sceneID="aEu-My-X4v">
@@ -269,7 +315,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UWH-S2-1Wg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2477" y="403"/>
+            <point key="canvasLocation" x="2477" y="542"/>
         </scene>
         <!--Parking-->
         <scene sceneID="0fD-ug-uIh">
@@ -281,20 +327,87 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTw-vV-ssh">
                                 <rect key="frame" x="0.0" y="108" width="414" height="44"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Search Nearby Parking Facilities">
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <segue destination="ahw-X2-KHe" kind="show" id="dlx-zE-vwW"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Building Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e5N-JP-IQP">
+                                <rect key="frame" x="20" y="213" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hours Parking" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4if-07-d60">
+                                <rect key="frame" x="20" y="267" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Car Plate Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KGl-bB-Ihn">
+                                <rect key="frame" x="20" y="321" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmL-Qc-x2A">
+                                <rect key="frame" x="20" y="172" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parking Charges:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uy3-oj-MeL">
+                                <rect key="frame" x="20" y="375" width="374" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Times Parked This Month:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgN-Nl-2Wc">
+                                <rect key="frame" x="20" y="426.5" width="199" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate (Based on Hours)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QwA-tu-icO">
+                                <rect key="frame" x="20" y="467.5" width="173" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Cost:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2E-4b-M1j">
+                                <rect key="frame" x="20" y="508.5" width="119" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="e5N-JP-IQP" firstAttribute="top" secondItem="GmL-Qc-x2A" secondAttribute="bottom" constant="20" id="0sM-2s-dzV"/>
+                            <constraint firstItem="Z8q-sN-nY7" firstAttribute="trailing" secondItem="GmL-Qc-x2A" secondAttribute="trailing" constant="20" id="2km-tj-VPd"/>
+                            <constraint firstItem="QwA-tu-icO" firstAttribute="top" secondItem="jgN-Nl-2Wc" secondAttribute="bottom" constant="20" id="3II-qx-OVz"/>
+                            <constraint firstItem="KGl-bB-Ihn" firstAttribute="leading" secondItem="Z8q-sN-nY7" secondAttribute="leading" constant="20" id="4gI-DR-0F5"/>
+                            <constraint firstItem="GmL-Qc-x2A" firstAttribute="leading" secondItem="Z8q-sN-nY7" secondAttribute="leading" constant="20" id="5dH-pc-gEj"/>
+                            <constraint firstItem="GmL-Qc-x2A" firstAttribute="top" secondItem="VTw-vV-ssh" secondAttribute="bottom" constant="20" id="6K3-NK-Wve"/>
+                            <constraint firstItem="QwA-tu-icO" firstAttribute="leading" secondItem="Z8q-sN-nY7" secondAttribute="leading" constant="20" id="9HL-Hd-iSb"/>
+                            <constraint firstItem="4if-07-d60" firstAttribute="leading" secondItem="Z8q-sN-nY7" secondAttribute="leading" constant="20" id="EY4-6Z-aQq"/>
+                            <constraint firstItem="l2E-4b-M1j" firstAttribute="leading" secondItem="Z8q-sN-nY7" secondAttribute="leading" constant="20" id="Emx-Cl-f1E"/>
+                            <constraint firstItem="4if-07-d60" firstAttribute="top" secondItem="e5N-JP-IQP" secondAttribute="bottom" constant="20" id="G7B-iI-Cr6"/>
+                            <constraint firstItem="Uy3-oj-MeL" firstAttribute="leading" secondItem="Z8q-sN-nY7" secondAttribute="leading" constant="20" id="HbY-kd-rpv"/>
                             <constraint firstItem="VTw-vV-ssh" firstAttribute="leading" secondItem="Z8q-sN-nY7" secondAttribute="leading" id="NQx-2c-bKs"/>
                             <constraint firstItem="VTw-vV-ssh" firstAttribute="top" secondItem="Z8q-sN-nY7" secondAttribute="top" constant="20" id="OO9-uc-fQM"/>
+                            <constraint firstItem="Z8q-sN-nY7" firstAttribute="trailing" secondItem="e5N-JP-IQP" secondAttribute="trailing" constant="20" id="VTq-qp-5od"/>
+                            <constraint firstItem="Z8q-sN-nY7" firstAttribute="trailing" secondItem="KGl-bB-Ihn" secondAttribute="trailing" constant="20" id="WMM-U9-9w1"/>
+                            <constraint firstItem="jgN-Nl-2Wc" firstAttribute="leading" secondItem="Z8q-sN-nY7" secondAttribute="leading" constant="20" id="XLn-g6-sxq"/>
+                            <constraint firstItem="Uy3-oj-MeL" firstAttribute="top" secondItem="KGl-bB-Ihn" secondAttribute="bottom" constant="20" id="Ye5-VY-Kz4"/>
+                            <constraint firstItem="l2E-4b-M1j" firstAttribute="top" secondItem="QwA-tu-icO" secondAttribute="bottom" constant="20" id="d98-QT-kK8"/>
                             <constraint firstItem="Z8q-sN-nY7" firstAttribute="trailing" secondItem="VTw-vV-ssh" secondAttribute="trailing" id="mgo-p0-UgI"/>
+                            <constraint firstItem="e5N-JP-IQP" firstAttribute="leading" secondItem="Z8q-sN-nY7" secondAttribute="leading" constant="20" id="nep-Tx-ghY"/>
+                            <constraint firstItem="jgN-Nl-2Wc" firstAttribute="top" secondItem="Uy3-oj-MeL" secondAttribute="bottom" constant="20" id="pVy-Qt-UW7"/>
+                            <constraint firstItem="Z8q-sN-nY7" firstAttribute="trailing" secondItem="4if-07-d60" secondAttribute="trailing" constant="20" id="tnb-Se-c3p"/>
+                            <constraint firstItem="Z8q-sN-nY7" firstAttribute="trailing" secondItem="Uy3-oj-MeL" secondAttribute="trailing" constant="20" id="uYk-nM-POP"/>
+                            <constraint firstItem="KGl-bB-Ihn" firstAttribute="top" secondItem="4if-07-d60" secondAttribute="bottom" constant="20" id="wOC-wu-ptD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Z8q-sN-nY7"/>
                     </view>
@@ -302,7 +415,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLf-04-l08" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2477" y="-875"/>
+            <point key="canvasLocation" x="2476.811594202899" y="-875.22321428571422"/>
         </scene>
         <!--MapVC-->
         <scene sceneID="Dkd-Of-CBf">
@@ -391,12 +504,13 @@
                     <connections>
                         <segue destination="7Rc-d3-eWi" kind="relationship" relationship="viewControllers" id="EnM-6t-2Qp"/>
                         <segue destination="Vdo-l1-u9g" kind="relationship" relationship="viewControllers" id="Yd3-yS-vY5"/>
+                        <segue destination="GoD-L7-Ydt" kind="relationship" relationship="viewControllers" id="14y-nb-NiD"/>
                         <segue destination="5MP-HQ-Hwx" kind="relationship" relationship="viewControllers" id="Baw-hx-U73"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZo-cb-Dmf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1704" y="-188"/>
+            <point key="canvasLocation" x="1703" y="-210"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uMt-nm-90H">
@@ -420,6 +534,7 @@
     <resources>
         <image name="car" catalog="system" width="64" height="46"/>
         <image name="pencil.and.ellipsis.rectangle" catalog="system" width="64" height="40"/>
+        <image name="person" catalog="system" width="64" height="58"/>
         <image name="phone.down" catalog="system" width="64" height="28"/>
     </resources>
 </document>
