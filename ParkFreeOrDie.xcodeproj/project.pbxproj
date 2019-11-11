@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBFFCFC1237A0D2D0097BEDE /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFFCFC0237A0D2D0097BEDE /* UserController.swift */; };
 		CE61F6942376629A0031F190 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61F6932376629A0031F190 /* AccountVC.swift */; };
 		CE61F696237669840031F190 /* ManualVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61F695237669840031F190 /* ManualVC.swift */; };
 		CE6E47E4236CED0C001EDD9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E47E3236CED0C001EDD9D /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BBFFCFC0237A0D2D0097BEDE /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		CE61F6932376629A0031F190 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		CE61F695237669840031F190 /* ManualVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualVC.swift; sourceTree = "<group>"; };
 		CE6E47E0236CED0C001EDD9D /* ParkFreeOrDie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParkFreeOrDie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				CEE670B32379D1160088AF22 /* ReceiptController.swift */,
+				BBFFCFC0237A0D2D0097BEDE /* UserController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				CEC311B62376545400ED357B /* MapVC.swift in Sources */,
 				CE61F696237669840031F190 /* ManualVC.swift in Sources */,
 				CEC3119D237642A600ED357B /* LoginVC.swift in Sources */,
+				BBFFCFC1237A0D2D0097BEDE /* UserController.swift in Sources */,
 				CE6E47EE236CED0C001EDD9D /* ParkFreeOrDie.xcdatamodeld in Sources */,
 				CE6E47E4236CED0C001EDD9D /* AppDelegate.swift in Sources */,
 				CEC311A723764AAC00ED357B /* ReceiptCell.swift in Sources */,

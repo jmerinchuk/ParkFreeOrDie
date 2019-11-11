@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XRr-AC-1ez">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XRr-AC-1ez">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -86,11 +86,13 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nYD-UR-3mG">
                                 <rect key="frame" x="20" y="108" width="374" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gFV-5r-BSW">
                                 <rect key="frame" x="20" y="162" width="374" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -147,6 +149,9 @@
                                 <state key="normal" title="Create Account">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="onCreateAccountButtonTouchUpInside:" destination="DhO-md-KJX" eventType="touchUpInside" id="Bae-bw-JLT"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="License Plate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JEd-V5-Z84">
                                 <rect key="frame" x="20" y="270" width="374" height="34"/>
@@ -199,6 +204,18 @@
                         <viewLayoutGuide key="safeArea" id="3iC-rh-ajQ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Account" id="whU-ko-EtS"/>
+                    <connections>
+                        <outlet property="creditCardCVVTextField" destination="rPt-Co-pcJ" id="KCa-xC-EDV"/>
+                        <outlet property="creditCardExpiryTextField" destination="Pow-L0-VM1" id="cfC-Py-NML"/>
+                        <outlet property="creditCardNameTextField" destination="rn4-e8-HEE" id="xmz-Jl-fW0"/>
+                        <outlet property="creditCardNumberTextField" destination="xV4-mb-G2w" id="CsO-2Z-g39"/>
+                        <outlet property="emailTextField" destination="gFV-5r-BSW" id="R1j-lP-1fH"/>
+                        <outlet property="licensePlateTextField" destination="JEd-V5-Z84" id="clS-YQ-mWq"/>
+                        <outlet property="nameTextField" destination="nYD-UR-3mG" id="qEU-fX-LwT"/>
+                        <outlet property="passwordTextField" destination="cBa-qT-2UZ" id="CC7-L0-e33"/>
+                        <outlet property="phoneNumberTextField" destination="3IJ-Uf-l8P" id="4VV-58-hpS"/>
+                        <outlet property="repeatPasswordTextField" destination="muG-0P-MOo" id="huc-Qq-YNE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ru-gM-0NP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
