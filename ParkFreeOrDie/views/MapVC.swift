@@ -34,6 +34,7 @@ class MapVC : UIViewController {
     var selectedPin : MKPlacemark? = nil
     var regionRadius : CLLocationDistance = 700
     
+    
     // Outlets
     @IBOutlet var mapView : MKMapView!
     
@@ -100,6 +101,47 @@ class MapVC : UIViewController {
         resultSearchController?.hidesNavigationBarDuringPresentation = false
         definesPresentationContext = true
     }
+    
+    /******************************************************************
+     * Method: setupLongPressGesture()
+     * Description: sets up long press gesture
+     *****************************************************************/
+    private func setupLongPressGesture() {
+        let lpGesture : UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+        
+        lpGesture.minimumPressDuration = 1.0
+        self.mapView.addGestureRecognizer(lpGesture) // attach to entire table view
+    }
+    
+    /******************************************************************
+     * Method: setupLongPressGesture()
+     * Description: handles the long press gesture.
+     *****************************************************************/
+    @objc func handleLongPress(gesture: UILongPressGestureRecognizer){
+        
+        // Data to be passed
+        
+        if gesture.state == .ended {
+            let point = gesture.location(in: self.mapView)
+            let coordinate = self.mapView.convert(point, toCoordinateFrom: self.mapView)
+            print(coordinate)
+            //Now use this coordinate to add annotation on map.
+            var annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            //Set title and subtitle if you want
+            annotation.title = "Title"
+            annotation.subtitle = "subtitle"
+        }
+        /*
+         Grab annotation data
+         */
+        
+        _ = navigationController?.popViewController(animated: true)
+        /*
+         Block here to return one screen and pass annotation data
+         */
+    }
+    
     
     /*************************************************************
      * Method: setupSearchBar()

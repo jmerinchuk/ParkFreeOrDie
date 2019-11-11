@@ -19,13 +19,15 @@ import Foundation
 class Receipt {
     
     // Class Variables
-    
+    var hoursParked : Int
+    var code : String
     
     /*************************************************************
      * Method: init()
      * Description: Initializer for Receipt Object
     *************************************************************/
-    init() {
-        
+    init(hoursParked: Int, code: String) {
+        self.hoursParked = hoursParked
+        self.code = code
     }
 }
