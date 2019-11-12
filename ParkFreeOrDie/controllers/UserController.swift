@@ -41,4 +41,43 @@ public class UserController {
             }
         }
     }
+    
+    func getUserByEmail(email: String) -> User? {
+        let allUsers = getAllUsers()
+        if(allUsers == nil) {
+            return nil
+        }
+        for user in allUsers! {
+            if user.value(forKey: "email") as! String == email {
+                
+                return User(name: user.value(forKey: "name") as! String,
+                            email: user.value(forKey: "email") as! String,
+                            phoneNumber: user.value(forKey: "phoneNumber") as! String,
+                            licensePlate: user.value(forKey: "licensePlate") as! String,
+                            creditCardNumber: user.value(forKey: "creditCardNumber") as! String,
+                            creditCardName: user.value(forKey: "creditCardName") as! String,
+                            creditCardExpiry: user.value(forKey: "creditCardExpiry") as! String,
+                            creditCardCVV: user.value(forKey: "creditCardCVV") as! String,
+                            password: user.value(forKey: "password") as! String)
+            }
+        }
+        return nil
+    }
+    
+    func getAllUsers() -> [NSManagedObject]? {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return nil
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserEntity")
+        
+        do {
+            let result = try managedContext.fetch(fetchRequest)
+            return result as? [NSManagedObject]
+        } catch {
+            print("Failed to get users")
+        }
+        return nil
+    }
 }

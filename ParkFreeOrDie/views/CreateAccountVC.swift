@@ -40,7 +40,7 @@ class CreateAccountVC : UIViewController {
         //check all fields for valid info.
         //if one fails, color it red.
         var invalidData = false
-        var errorColor: UIColor = UIColor(red: 1.0, green: 0.8, blue: 0.8, alpha: 1.0)
+        let errorColor: UIColor = UIColor(red: 1.0, green: 0.8, blue: 0.8, alpha: 1.0)
         
         //checks for empty fields...
         for field in textFields {
@@ -51,7 +51,7 @@ class CreateAccountVC : UIViewController {
         }
         
         //checks for same passwords:
-        if( (passwordTextField.text ?? "0") != (repeatPasswordTextField.text ?? "1")) {
+        if( (passwordTextField.text!) != (repeatPasswordTextField.text!)) {
             passwordTextField.backgroundColor = errorColor
             repeatPasswordTextField.backgroundColor = errorColor
             invalidData = true
@@ -70,6 +70,8 @@ class CreateAccountVC : UIViewController {
                                                     creditCardExpiry: creditCardExpiryTextField.text!,
                                                     creditCardCVV: creditCardCVVTextField.text!,
                                                     password: passwordTextField.text!))
+            
+            navigationController?.popViewController(animated: true)
         }
     }
     
