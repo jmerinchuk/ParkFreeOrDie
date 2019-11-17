@@ -57,12 +57,12 @@ class LoginVC : UIViewController {
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let tabBarVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
                 navigationController?.pushViewController(tabBarVC, animated: true)
-            }else{
+            } else {
                 //invalid username/password.
                 inputErrorLabel.text = "Password incorrect"
                 passwordTextField.backgroundColor = errorColor
             }
-        }else{
+        } else {
             inputErrorLabel.text = "Fields cannot be empty"
         }
     }
@@ -76,6 +76,7 @@ class LoginVC : UIViewController {
         emailTextField.addTarget(self, action: #selector(restoreOriginalColor(sender:)), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(restoreOriginalColor(sender:)), for: .editingChanged)
     }
+    
     
     @objc func restoreOriginalColor(sender: UITextField) {
         sender.backgroundColor = UIColor.white

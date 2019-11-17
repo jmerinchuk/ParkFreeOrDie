@@ -6,7 +6,8 @@
  * Desccription:
  *
  * Sources:
- *
+ *      Reverse Geocoding Address from Lat and Long
+ *      https://stackoverflow.com/questions/41358423/swift-generate-an-address-format-from-reverse-geocoding
  *****************************************************************/
 
 // Imports
@@ -33,7 +34,14 @@ class MapVC : UIViewController {
     var resultSearchController : UISearchController? = nil
     var selectedPin : MKPlacemark? = nil
     var regionRadius : CLLocationDistance = 700
+    var pinLat : Double = 0.00
+    var pinLong : Double = 0.00
     
+    // Variables to be passed
+    var street : String = ""
+    var city : String = ""
+    var postal : String = ""
+    var country : String = ""
     
     // Outlets
     @IBOutlet var mapView : MKMapView!
@@ -82,7 +90,7 @@ class MapVC : UIViewController {
      * Description: Manage accuracy of map and authorization
     *************************************************************/
     func setupSearchTable() {
-        let locationSearchTVC = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTVC") as! LocationSearchTVC
+        let locationSearchTVC = storyboard!.instantiateViewController(withIdentifier: "LocationSearchScene") as! LocationSearchTVC
         resultSearchController = UISearchController(searchResultsController: locationSearchTVC)
         resultSearchController?.searchResultsUpdater = locationSearchTVC
         locationSearchTVC.mapView = mapView
@@ -102,50 +110,67 @@ class MapVC : UIViewController {
         definesPresentationContext = true
     }
     
-    /******************************************************************
-     * Method: setupLongPressGesture()
-     * Description: sets up long press gesture
-     *****************************************************************/
-    private func setupLongPressGesture() {
-        let lpGesture : UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
-        
-        lpGesture.minimumPressDuration = 1.0
-        self.mapView.addGestureRecognizer(lpGesture) // attach to entire table view
+    /*************************************************************
+     * Method: getAddress()
+     * Description: Gets address of Annotation and returns it to the previous screen.
+    *************************************************************/
+    @IBAction func getAddress(_ sender: Any) {
+        var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
+        let ceo: CLGeocoder = CLGeocoder()
+        center.latitude = pinLat
+        center.longitude = pinLong
+
+        let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
+
+        ceo.reverseGeocodeLocation(loc, completionHandler:
+            {(placemarks, error) in
+                if (error != nil)
+                {
+                    print("reverse geodcode fail: \(error!.localizedDescription)")
+                }
+                let pm = placemarks! as [CLPlacemark]
+
+                if pm.count > 0 {
+                    let pm = placemarks![0]
+                    if pm.thoroughfare != nil {
+                        self.street = pm.thoroughfare!
+                    }
+                    if pm.locality != nil {
+                        self.city = pm.locality!
+                    }
+                    if pm.country != nil {
+                        self.country = pm.country!
+                    }
+                    if pm.postalCode != nil {
+                        self.postal = pm.postalCode!
+                    }
+                    
+                    print("You will be parking at: " + self.street + " " + self.city + " " + self.country + " " + self.postal)
+                    
+                    self.openScene()
+              }
+        })
     }
-    
-    /******************************************************************
-     * Method: setupLongPressGesture()
-     * Description: handles the long press gesture.
-     *****************************************************************/
-    @objc func handleLongPress(gesture: UILongPressGestureRecognizer){
-        
-        // Data to be passed
-        
-        if gesture.state == .ended {
-            let point = gesture.location(in: self.mapView)
-            let coordinate = self.mapView.convert(point, toCoordinateFrom: self.mapView)
-            print(coordinate)
-            //Now use this coordinate to add annotation on map.
-            var annotation = MKPointAnnotation()
-            annotation.coordinate = coordinate
-            //Set title and subtitle if you want
-            annotation.title = "Title"
-            annotation.subtitle = "subtitle"
-        }
-        /*
-         Grab annotation data
-         */
-        
-        _ = navigationController?.popViewController(animated: true)
-        /*
-         Block here to return one screen and pass annotation data
-         */
-    }
-    
     
     /*************************************************************
-     * Method: setupSearchBar()
-     * Description: Manage accuracy of map and authorization
+     * Method: openScene
+     * Description: Opens confirm parking scene to confirm parking location
+    *************************************************************/
+    func openScene() {
+        let mainSB : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let confirmParkingVC = mainSB.instantiateViewController(withIdentifier: "ConfirmParkingScene") as! ConfirmParkingVC
+        
+        confirmParkingVC.street = self.street
+        confirmParkingVC.city = self.city
+        confirmParkingVC.postal = self.postal
+        confirmParkingVC.country = self.country
+        print("MapVC Variables: " + self.street + " " + self.city + " " + self.postal + " " + self.country)
+        navigationController?.pushViewController(confirmParkingVC, animated: true)
+    }
+    
+    /*************************************************************
+     * Method: getDirections()
+     * Description: Opens map to get directions to parking facility
     *************************************************************/
     func getDirections(){
         if let selectedPin = selectedPin {
@@ -156,14 +181,26 @@ class MapVC : UIViewController {
     }
 }
 
+/*****************************************************************
+ * Extension MapVC : CLLocationManagerDelegate
+ * Description: Manages Authorization to user's location
+*****************************************************************/
 extension MapVC : CLLocationManagerDelegate {
     
+    /*************************************************************
+     * Method: locationManager()
+     * Description: Handles user location error by printing error to console
+    *************************************************************/
     func locationManager(_ manager:
         // Print an error if anything goes wrong
         CLLocationManager, didFailWithError error: Error) {
         print("Error: \(error.localizedDescription)")
     }
     
+    /*************************************************************
+     * Method: locationManager()
+     * Description: Handles different location authorizations
+    *************************************************************/
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .authorizedWhenInUse:
@@ -187,7 +224,10 @@ extension MapVC : CLLocationManagerDelegate {
         }
     }
     
-    // Handles location updates and requests and displays location on map
+    /*************************************************************
+     * Method: locationManager()
+     * Description: Handles location updates and requests and displays location on map
+    *************************************************************/
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // If previous location exists, get it.
         if locations.last != nil {
@@ -212,20 +252,18 @@ extension MapVC : CLLocationManagerDelegate {
         mapView.addAnnotation(myAnnotation)
         
     }
-    
-    func addPinToMap(title: String?, lat: CLLocationDegrees, long: CLLocationDegrees) {
-        if let title = title {
-            let location = CLLocationCoordinate2D(latitude: lat, longitude: long)
-            let myAnnotation = MKPointAnnotation()
-            myAnnotation.title = title
-            myAnnotation.coordinate = location
-            self.mapView.addAnnotation(myAnnotation)
-//            self.mapView  .showAnnotations([myAnnotation], animated: true)
-        }
-    }
 }
 
+/*****************************************************************
+ * Extension MapVC : HandleMapSearch
+ * Description: Uses function to drop pin and zoom
+*****************************************************************/
 extension MapVC : HandleMapSearch {
+    
+    /*************************************************************
+     * Method: dropPinZoonIn(placemark)
+     * Description: Drops pin annotaion and zooms in on screen
+    *************************************************************/
     func dropPinZoomIn(placemark:MKPlacemark){
         // cache the pin
         selectedPin = placemark
@@ -242,10 +280,23 @@ extension MapVC : HandleMapSearch {
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
         mapView.setRegion(region, animated: true)
+        
+        // set pinLat and pinLong
+        pinLat = annotation.coordinate.latitude
+        pinLong = annotation.coordinate.longitude
     }
 }
 
+/*****************************************************************
+ * Extension MapVC : MKMapViewDelegate
+ * Description: Assists in getting directions to parking facility
+*****************************************************************/
 extension MapVC : MKMapViewDelegate {
+    
+    /*************************************************************
+     * Method: mapView()
+     * Description: Handles User Location dot and pulls getDirections function
+    *************************************************************/
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         if annotation is MKUserLocation {
             //return nil so map view draws "blue dot" for standard user location

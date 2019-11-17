@@ -19,7 +19,7 @@ import UIKit
 class CreateAccountVC : UIViewController {
 
     // Class Variables
-    
+    private var textFields: [UITextField] = []
     
     // Outlets
     @IBOutlet weak var nameTextField: UITextField!
@@ -32,8 +32,6 @@ class CreateAccountVC : UIViewController {
     @IBOutlet weak var creditCardCVVTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
-    
-    private var textFields: [UITextField] = []
     
     
     @IBAction func onCreateAccountButtonTouchUpInside(_ sender: Any) {

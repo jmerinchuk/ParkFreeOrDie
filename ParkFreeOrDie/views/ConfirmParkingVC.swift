@@ -2,7 +2,7 @@
  * Project: ParkFreeOrDie
  * Programmer: Jeremy Clark
  * Programmer: Jayce Merinchuk
- * File: ParkingVC.swift
+ * File: ConfirmParkingVC.swift
  * Desccription:
  *
  * Sources:
@@ -16,11 +16,19 @@ import UIKit
  * Class: ParkingVC : UIViewController
  * Description:
 *****************************************************************/
-class ParkingVC : UIViewController {
+class ConfirmParkingVC : UIViewController {
 
     // Class Variables
+    var street : String = ""
+    var city : String = ""
+    var postal : String = ""
+    var country : String = ""
     
     // Outlets
+    @IBOutlet var lblStreet: UILabel!
+    @IBOutlet var lblCity: UILabel!
+    @IBOutlet var lblPostal: UILabel!
+    @IBOutlet var lblCountry: UILabel!
     
     /*************************************************************
      * Method: viewDidLoad()
@@ -28,15 +36,19 @@ class ParkingVC : UIViewController {
     *************************************************************/
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLabels()
     }
-
+    
     /*************************************************************
-     * Method: findParking
-     * Description: Pushes view Controller to get parking address details
+     * Method: setLabels()
+     * Description: sets Labels on scene
     *************************************************************/
-    @IBAction func findParking(_ sender: Any) {
-        let mainSB : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let mapVC = mainSB.instantiateViewController(withIdentifier: "MapScene") as! MapVC
-        navigationController?.pushViewController(mapVC, animated: true)
+    func setLabels() {
+        print("ConfirmParking Labels: " + street + " " + city + " " + postal + " " + country)
+        lblStreet.text = street
+        lblCity.text = city
+        lblPostal.text = postal
+        lblCountry.text = country
     }
 }
+
