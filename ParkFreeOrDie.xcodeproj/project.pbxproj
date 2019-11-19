@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BBFFCFC1237A0D2D0097BEDE /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFFCFC0237A0D2D0097BEDE /* UserController.swift */; };
+		CE20C39423845F2F005D5269 /* ParkingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20C39323845F2F005D5269 /* ParkingVC.swift */; };
 		CE2883C92381C92300EE17D7 /* ConfirmParkingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2883C82381C92300EE17D7 /* ConfirmParkingVC.swift */; };
 		CE61F6942376629A0031F190 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61F6932376629A0031F190 /* AccountVC.swift */; };
 		CE61F696237669840031F190 /* ManualVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE61F695237669840031F190 /* ManualVC.swift */; };
@@ -19,7 +20,6 @@
 		CE6E47F3236CED0E001EDD9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6E47F1236CED0E001EDD9D /* LaunchScreen.storyboard */; };
 		CEC3119D237642A600ED357B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3119C237642A600ED357B /* LoginVC.swift */; };
 		CEC3119F237646B500ED357B /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3119E237646B500ED357B /* SupportVC.swift */; };
-		CEC311A32376499300ED357B /* ParkingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC311A22376499300ED357B /* ParkingVC.swift */; };
 		CEC311A723764AAC00ED357B /* ReceiptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC311A623764AAC00ED357B /* ReceiptCell.swift */; };
 		CEC311A923764C5700ED357B /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC311A823764C5700ED357B /* Receipt.swift */; };
 		CEC311AD23764EB700ED357B /* ReceiptTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC311AC23764EB700ED357B /* ReceiptTVC.swift */; };
@@ -33,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		BBFFCFC0237A0D2D0097BEDE /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		CE20C39323845F2F005D5269 /* ParkingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingVC.swift; sourceTree = "<group>"; };
 		CE2883C82381C92300EE17D7 /* ConfirmParkingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmParkingVC.swift; sourceTree = "<group>"; };
 		CE61F6932376629A0031F190 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		CE61F695237669840031F190 /* ManualVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualVC.swift; sourceTree = "<group>"; };
@@ -46,7 +47,6 @@
 		CE6E47F4236CED0E001EDD9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEC3119C237642A600ED357B /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		CEC3119E237646B500ED357B /* SupportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportVC.swift; sourceTree = "<group>"; };
-		CEC311A22376499300ED357B /* ParkingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingVC.swift; sourceTree = "<group>"; };
 		CEC311A623764AAC00ED357B /* ReceiptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCell.swift; sourceTree = "<group>"; };
 		CEC311A823764C5700ED357B /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		CEC311AC23764EB700ED357B /* ReceiptTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTVC.swift; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 				CEC3119C237642A600ED357B /* LoginVC.swift */,
 				CEC311AF23764F3100ED357B /* CreateAccountVC.swift */,
 				CEC311AC23764EB700ED357B /* ReceiptTVC.swift */,
-				CEC311A22376499300ED357B /* ParkingVC.swift */,
+				CE20C39323845F2F005D5269 /* ParkingVC.swift */,
 				CEC311B52376545400ED357B /* MapVC.swift */,
 				CEC311B92376580600ED357B /* LocationSearchTVC.swift */,
 				CEC311A623764AAC00ED357B /* ReceiptCell.swift */,
@@ -218,6 +218,7 @@
 				CE61F696237669840031F190 /* ManualVC.swift in Sources */,
 				CEC3119D237642A600ED357B /* LoginVC.swift in Sources */,
 				BBFFCFC1237A0D2D0097BEDE /* UserController.swift in Sources */,
+				CE20C39423845F2F005D5269 /* ParkingVC.swift in Sources */,
 				CE6E47EE236CED0C001EDD9D /* ParkFreeOrDie.xcdatamodeld in Sources */,
 				CE6E47E4236CED0C001EDD9D /* AppDelegate.swift in Sources */,
 				CEC311A723764AAC00ED357B /* ReceiptCell.swift in Sources */,
@@ -227,7 +228,6 @@
 				CEC3119F237646B500ED357B /* SupportVC.swift in Sources */,
 				CE61F6942376629A0031F190 /* AccountVC.swift in Sources */,
 				CEC311B023764F3100ED357B /* CreateAccountVC.swift in Sources */,
-				CEC311A32376499300ED357B /* ParkingVC.swift in Sources */,
 				CEC311B4237653CF00ED357B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

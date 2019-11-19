@@ -42,6 +42,7 @@ class MapVC : UIViewController {
     var city : String = ""
     var postal : String = ""
     var country : String = ""
+    var hoursParked : Int = 0
     
     // Outlets
     @IBOutlet var mapView : MKMapView!
@@ -145,7 +146,7 @@ class MapVC : UIViewController {
                         self.postal = pm.postalCode!
                     }
                     
-                    print("You will be parking at: " + self.street + " " + self.city + " " + self.country + " " + self.postal)
+//                    print("You will be parking at: " + self.street + " " + self.city + " " + self.country + " " + self.postal)
                     
                     self.openScene()
               }
@@ -164,7 +165,8 @@ class MapVC : UIViewController {
         confirmParkingVC.city = self.city
         confirmParkingVC.postal = self.postal
         confirmParkingVC.country = self.country
-        print("MapVC Variables: " + self.street + " " + self.city + " " + self.postal + " " + self.country)
+        confirmParkingVC.hoursParked = self.hoursParked
+//        print("MapVC Variables: " + self.street + " " + self.city + " " + self.postal + " " + self.country)
         navigationController?.pushViewController(confirmParkingVC, animated: true)
     }
     
