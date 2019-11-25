@@ -19,13 +19,16 @@ import UIKit
 class ConfirmParkingVC : UIViewController {
 
     // Class Variables
+    let receiptController = ReceiptController()
     var street : String = ""
     var city : String = ""
     var postal : String = ""
     var country : String = ""
-    var date : String = ""
+    var date : Date = Date()
+    var dateString : String = ""
     var time : String = ""
     var hoursParked : Int = 0
+    var licensePlate : String = ""
     
     // Outlets
     @IBOutlet var lblStreet: UILabel!
@@ -47,7 +50,6 @@ class ConfirmParkingVC : UIViewController {
         super.viewDidLoad()
         getCurrentDateAndTime()
         setLabels()
-        
     }
     
     /*************************************************************
@@ -60,7 +62,7 @@ class ConfirmParkingVC : UIViewController {
         lblCity.text = city
         lblPostal.text = postal
         lblCountry.text = country
-        lblDate.text = date
+        lblDate.text = dateString
         lblTime.text = time
         lblHours.text = String(hoursParked)
     }
@@ -70,13 +72,13 @@ class ConfirmParkingVC : UIViewController {
      * Description: Obtians Current Date and Time
     *************************************************************/
     func getCurrentDateAndTime() {
-        let newDate = Date()
+        let date = Date()
         let yearmoday = DateFormatter()
         yearmoday.dateFormat = "yyyy-MM-dd"
         let newTime = DateFormatter()
         newTime.dateFormat = "HH:mm:ss"
-        date = yearmoday.string(from: newDate)
-        time = newTime.string(from: newDate)
+        dateString = yearmoday.string(from: date)
+        time = newTime.string(from: date)
     }
     
     
@@ -85,8 +87,24 @@ class ConfirmParkingVC : UIViewController {
      * Description: Saves Parking Receipt to Core Data and Pops VC back to parking.
     *************************************************************/
     @IBAction func btnParkHere(_ sender: Any) {
+        // Get LicensePlate from User
         
         
+        // Create Receipt
+        let newReceipt = Receipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date)
+        
+        // Pass Receipt to Receipt Controller
+        self.receiptController.insertReceipt(newReceipt: newReceipt)
+        
+        // Manage Alert Box
+       let alertController = UIAlertController(title: "Success!", message: "This is the parking you are looking for", preferredStyle: .alert)
+       let okAction = UIAlertAction(title: "OK", style: .default, handler: { (alert: UIAlertAction!) in
+            let mainSB : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let tabBarVC = mainSB.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            self.navigationController?.pushViewController(tabBarVC, animated: true)
+       })
+       alertController.addAction(okAction)
+       present(alertController, animated: true)
     }
 }
 

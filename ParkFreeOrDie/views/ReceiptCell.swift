@@ -21,6 +21,8 @@ class ReceiptCell: UITableViewCell {
     // Outlets
     @IBOutlet var lblTitle : UILabel!
     @IBOutlet var lblSubtitle : UILabel!
+    @IBOutlet var lblTotal: UILabel!
+    
 
     /*************************************************************
      * Method: awakeFromNib()

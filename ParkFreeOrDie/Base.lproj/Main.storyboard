@@ -353,11 +353,19 @@
                                             <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$$$$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JuB-Ia-zuX">
+                                            <rect key="frame" x="320" y="27" width="66" height="26"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="lblSubtitle" destination="WW8-3A-3gK" id="sib-23-mAx"/>
                                     <outlet property="lblTitle" destination="UXo-HI-XfD" id="pX3-4o-Yuz"/>
+                                    <outlet property="lblTotal" destination="JuB-Ia-zuX" id="FWU-D4-Azo"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -375,7 +383,6 @@
         <!--Parking-->
         <scene sceneID="0fD-ug-uIh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZLf-04-l08" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="ParkingScene" id="7Rc-d3-eWi" customClass="ParkingVC" customModule="ParkFreeOrDie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="22j-6L-0Nc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -449,6 +456,7 @@
                         <outlet property="txtHours" destination="KKv-Ai-tAl" id="xFs-so-uHQ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZLf-04-l08" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2476.811594202899" y="-875.22321428571422"/>
         </scene>

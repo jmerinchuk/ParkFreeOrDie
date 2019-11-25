@@ -146,7 +146,7 @@ class MapVC : UIViewController {
                         self.postal = pm.postalCode!
                     }
                     
-//                    print("You will be parking at: " + self.street + " " + self.city + " " + self.country + " " + self.postal)
+                    print("You will be parking at: " + self.street + " " + self.city + " " + self.country + " " + self.postal)
                     
                     self.openScene()
               }

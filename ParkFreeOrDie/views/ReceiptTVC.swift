@@ -51,7 +51,7 @@ class ReceiptTVC: UITableViewController {
         if gestureRecognizer.state == .ended {
             let touchPoint = gestureRecognizer.location(in: self.tableView)
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {
-//                self.displayEditReceipt(indexPath : indexPath)
+                self.displayEditReceipt(indexPath : indexPath)
             }
         }
     }
@@ -82,8 +82,14 @@ class ReceiptTVC: UITableViewController {
         if indexPath.row < receiptController.getAllReceipts()!.count {
             
             let receipt = receiptController.getAllReceipts()![indexPath.row]
-            cell.lblTitle?.text = receipt.value(forKeyPath: "hoursParked") as? String
-            cell.lblSubtitle?.text = receipt.value(forKeyPath: "code") as? String
+            cell.lblTitle?.text = receipt.value(forKeyPath: "street") as? String
+            
+            let mydate = receipt.value(forKeyPath: "date") as? Date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
+            let date = dateFormatter.string(from: mydate!)
+            print(date)
+            cell.lblSubtitle?.text = date
         }
         return cell
     }
@@ -112,9 +118,9 @@ class ReceiptTVC: UITableViewController {
      * Method: addReceipt(indexPath)
      * Description: Adds a new receipt to ReceiptEntity Table
      *****************************************************************/
-    private func addReceipt(hoursParked: Int, code: String) {
+    private func addReceipt(hoursParked: Int, street: String, city: String, postal: String, country: String, licensePlate: String, date: Date) {
         let newIndex = receiptController.getAllReceipts()!.count
-        let receipt = Receipt(hoursParked: hoursParked, code: code)
+        let receipt = Receipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date)
         self.receiptController.insertReceipt(newReceipt: receipt)
         tableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .top)
     }
@@ -123,8 +129,8 @@ class ReceiptTVC: UITableViewController {
      * Method: editReceipt(indexPath)
      * Description: passes receipt to controller and edits receipt.
      *****************************************************************/
-    private func editReceipt(oldTitle: String, hoursParked: Int, code: String) {
-        let receipt = Receipt(hoursParked: hoursParked, code: code)
+    private func editReceipt(oldTitle: String, hoursParked: Int, street: String, city: String, postal: String, country: String, licensePlate: String, date: Date) {
+        let receipt = Receipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date)
         self.receiptController.updateReceipt(receipt: receipt, oldTitle: oldTitle)
         tableView.reloadData()
     }
@@ -150,6 +156,12 @@ class ReceiptTVC: UITableViewController {
         
         let receipt = receiptController.getAllReceipts()![indexPath.row]
         var oldTitle : String?
+        let street = (receipt.value(forKey: "street") as? String)!
+        let city = receipt.value(forKey: "city") as? String
+        let postal = receipt.value(forKey: "postal") as? String
+        let country = receipt.value(forKey: "country") as? String
+        let licensePlate = receipt.value(forKey: "licensePlate") as? String
+        let date = receipt.value(forKey: "date") as? Date
         
         addAlert.addTextField{(textField : UITextField) in
             oldTitle = receipt.value(forKeyPath: "hoursParked") as? String
@@ -159,20 +171,12 @@ class ReceiptTVC: UITableViewController {
             textField.autocorrectionType = .default
         }
         
-        addAlert.addTextField{(textField : UITextField) in
-            textField.text = receipt.value(forKeyPath: "code") as? String
-            textField.keyboardType = .default
-            textField.keyboardAppearance = .dark
-            textField.autocorrectionType = .default
-        }
-        
         addAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         addAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
             _ in
             if let hoursParked = addAlert.textFields?[0].text,
-                let intHours = Int(hoursParked),
-                let code = addAlert.textFields?[1].text {
-                self.editReceipt(oldTitle: oldTitle!, hoursParked: intHours, code: code)
+                let intHours = Int(hoursParked) {
+                self.editReceipt(oldTitle: oldTitle!, hoursParked: intHours, street: street, city: city!, postal: postal!, country: country!, licensePlate: licensePlate!, date: date!)
             }
         }))
         self.present(addAlert, animated: true, completion: nil)

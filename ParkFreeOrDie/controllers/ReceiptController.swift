@@ -37,7 +37,12 @@ public class ReceiptController {
             let newreceipt = NSManagedObject(entity: receiptEntity!, insertInto: managedContext)
             
             newreceipt.setValue(newReceipt.hoursParked, forKey: "hoursParked")
-            newreceipt.setValue(newReceipt.code, forKey: "code")
+            newreceipt.setValue(newReceipt.street, forKey: "street")
+            newreceipt.setValue(newReceipt.city, forKey: "city")
+            newreceipt.setValue(newReceipt.postal, forKey: "postal")
+            newreceipt.setValue(newReceipt.country, forKey: "country")
+            newreceipt.setValue(newReceipt.licensePlate, forKey: "licensePlate")
+            newreceipt.setValue(newReceipt.date, forKey: "date")
             
             // Attempt to save data and provide error if it failed
             do {
@@ -68,7 +73,12 @@ public class ReceiptController {
             
             let existingReceipt = result[0] as! NSManagedObject
             existingReceipt.setValue(receipt.hoursParked, forKey: "hoursParked")
-            existingReceipt.setValue(receipt.code, forKey: "code")
+            existingReceipt.setValue(receipt.street, forKey: "street")
+            existingReceipt.setValue(receipt.city, forKey: "city")
+            existingReceipt.setValue(receipt.postal, forKey: "postal")
+            existingReceipt.setValue(receipt.country, forKey: "country")
+            existingReceipt.setValue(receipt.licensePlate, forKey: "licensePlate")
+            existingReceipt.setValue(receipt.date, forKey: "date")
             
             // Attempt to save the existing receipt with new data
             do {

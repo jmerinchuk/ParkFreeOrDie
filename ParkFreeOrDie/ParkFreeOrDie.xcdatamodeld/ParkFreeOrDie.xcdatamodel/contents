@@ -4,10 +4,12 @@
         <attribute name="city" optional="YES" attributeType="String"/>
         <attribute name="code" optional="YES" attributeType="String"/>
         <attribute name="country" optional="YES" attributeType="String"/>
-        <attribute name="dateTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="hoursParked" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="licensePlate" optional="YES" attributeType="String"/>
         <attribute name="postal" optional="YES" attributeType="String"/>
         <attribute name="street" optional="YES" attributeType="String"/>
+        <attribute name="total" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
     <entity name="UserEntity" representedClassName="UserEntity" syncable="YES" codeGenerationType="class">
         <attribute name="creditCardCVV" optional="YES" attributeType="String"/>
@@ -21,7 +23,7 @@
         <attribute name="phoneNumber" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="ReceiptEntity" positionX="-63" positionY="9" width="128" height="148"/>
+        <element name="ReceiptEntity" positionX="-63" positionY="9" width="128" height="178"/>
         <element name="UserEntity" positionX="133.4296875" positionY="-37.8046875" width="128" height="178"/>
     </elements>
 </model>
