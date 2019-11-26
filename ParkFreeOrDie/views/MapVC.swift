@@ -128,6 +128,7 @@ class MapVC : UIViewController {
                 if (error != nil)
                 {
                     print("reverse geodcode fail: \(error!.localizedDescription)")
+                    return
                 }
                 let pm = placemarks! as [CLPlacemark]
 

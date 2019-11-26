@@ -20,6 +20,18 @@ import CoreData
 *****************************************************************/
 public class ReceiptController {
     
+    func receiptFromNSManagedObject(obj: NSManagedObject) -> Receipt{
+        let street = (obj.value(forKey: "street") as? String)!
+        let city = obj.value(forKey: "city") as? String
+        let postal = obj.value(forKey: "postal") as? String
+        let country = obj.value(forKey: "country") as? String
+        let licensePlate = obj.value(forKey: "licensePlate") as? String
+        let date = obj.value(forKey: "date") as? Date
+        let hoursParked = obj.value(forKey: "hoursParked") as? Int
+        
+        return Receipt(hoursParked: hoursParked!, street: street, city: city!, postal: postal!, country: country!, licensePlate: licensePlate!, date: date!)
+        
+    }
     /*************************************************************
      * Method: insertReceipt()
      * Description: Inserts new receipt into database

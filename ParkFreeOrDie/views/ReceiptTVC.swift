@@ -130,9 +130,11 @@ class ReceiptTVC: UITableViewController {
      * Description: passes receipt to controller and edits receipt.
      *****************************************************************/
     private func editReceipt(oldTitle: String, hoursParked: Int, street: String, city: String, postal: String, country: String, licensePlate: String, date: Date) {
-        let receipt = Receipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date)
-        self.receiptController.updateReceipt(receipt: receipt, oldTitle: oldTitle)
-        tableView.reloadData()
+        //let receipt = Receipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date)
+        //self.receiptController.updateReceipt(receipt: receipt, oldTitle: oldTitle)
+        //tableView.reloadData()
+        
+
     }
     
     /******************************************************************
@@ -152,34 +154,17 @@ class ReceiptTVC: UITableViewController {
      *****************************************************************/
     private func displayEditReceipt(indexPath: IndexPath) {
         
-        let addAlert = UIAlertController(title: "Edit Receipt", message: "Edit Receipt Details", preferredStyle: .alert)
+        //let addAlert = UIAlertController(title: "Edit Receipt", message: "Edit Receipt Details", preferredStyle: .alert)
         
-        let receipt = receiptController.getAllReceipts()![indexPath.row]
-        var oldTitle : String?
-        let street = (receipt.value(forKey: "street") as? String)!
-        let city = receipt.value(forKey: "city") as? String
-        let postal = receipt.value(forKey: "postal") as? String
-        let country = receipt.value(forKey: "country") as? String
-        let licensePlate = receipt.value(forKey: "licensePlate") as? String
-        let date = receipt.value(forKey: "date") as? Date
+        let nsObj = receiptController.getAllReceipts()![indexPath.row]
+        let receipt = receiptController.receiptFromNSManagedObject(obj: nsObj)
         
-        addAlert.addTextField{(textField : UITextField) in
-            oldTitle = receipt.value(forKeyPath: "hoursParked") as? String
-            textField.text = receipt.value(forKeyPath: "hoursParked") as? String
-            textField.keyboardType = .default
-            textField.keyboardAppearance = .dark
-            textField.autocorrectionType = .default
-        }
         
-        addAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-        addAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
-            _ in
-            if let hoursParked = addAlert.textFields?[0].text,
-                let intHours = Int(hoursParked) {
-                self.editReceipt(oldTitle: oldTitle!, hoursParked: intHours, street: street, city: city!, postal: postal!, country: country!, licensePlate: licensePlate!, date: date!)
-            }
-        }))
-        self.present(addAlert, animated: true, completion: nil)
+        let mainSB : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewReceiptVC = mainSB.instantiateViewController(withIdentifier: "ViewReceipt") as! ViewReceiptVC
+        viewReceiptVC.receipt = receipt
+
+        navigationController?.pushViewController(viewReceiptVC, animated: true)
     }
     
 }

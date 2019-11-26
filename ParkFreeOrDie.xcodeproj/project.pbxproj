@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBA22433238CD9E80008C506 /* ViewReceiptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22432238CD9E80008C506 /* ViewReceiptVC.swift */; };
 		BBFFCFC1237A0D2D0097BEDE /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFFCFC0237A0D2D0097BEDE /* UserController.swift */; };
 		CE20C39423845F2F005D5269 /* ParkingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20C39323845F2F005D5269 /* ParkingVC.swift */; };
 		CE2883C92381C92300EE17D7 /* ConfirmParkingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2883C82381C92300EE17D7 /* ConfirmParkingVC.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BBA22432238CD9E80008C506 /* ViewReceiptVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReceiptVC.swift; sourceTree = "<group>"; };
 		BBFFCFC0237A0D2D0097BEDE /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		CE20C39323845F2F005D5269 /* ParkingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingVC.swift; sourceTree = "<group>"; };
 		CE2883C82381C92300EE17D7 /* ConfirmParkingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmParkingVC.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				CEC3119E237646B500ED357B /* SupportVC.swift */,
 				CE61F695237669840031F190 /* ManualVC.swift */,
 				CEE670B02379CCCE0088AF22 /* AppManual.html */,
+				BBA22432238CD9E80008C506 /* ViewReceiptVC.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				CE2883C92381C92300EE17D7 /* ConfirmParkingVC.swift in Sources */,
 				CEC3119F237646B500ED357B /* SupportVC.swift in Sources */,
 				CE61F6942376629A0031F190 /* AccountVC.swift in Sources */,
+				BBA22433238CD9E80008C506 /* ViewReceiptVC.swift in Sources */,
 				CEC311B023764F3100ED357B /* CreateAccountVC.swift in Sources */,
 				CEC311B4237653CF00ED357B /* User.swift in Sources */,
 			);
