@@ -29,6 +29,7 @@ class ViewReceiptVC: UIViewController {
         countryLabel.text = receipt?.country
         hoursParkedLabel.text = String(receipt!.hoursParked)
         costLabel.text = String(receipt!.cost)
+        dateLabel.text = String(receipt!.getDateAsString())
         
 
         // Do any additional setup after loading the view.

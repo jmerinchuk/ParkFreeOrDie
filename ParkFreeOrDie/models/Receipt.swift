@@ -43,4 +43,10 @@ class Receipt {
         self.date = date
         self.cost = cost
     }
+    
+    func getDateAsString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: self.date)
+    }
 }

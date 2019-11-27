@@ -86,11 +86,8 @@ class ReceiptTVC: UITableViewController {
             cell.lblTitle?.text = receipt.street
             
             cell.lblTotal?.text = "$ \(receipt.cost)"
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            let date = dateFormatter.string(from: receipt.date)
-            cell.lblSubtitle?.text = date
+
+            cell.lblSubtitle?.text = receipt.getDateAsString()
         }
         return cell
     }
