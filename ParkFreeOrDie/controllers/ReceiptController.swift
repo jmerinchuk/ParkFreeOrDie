@@ -28,15 +28,58 @@ public class ReceiptController {
         let licensePlate = obj.value(forKey: "licensePlate") as? String
         let date = obj.value(forKey: "date") as? Date
         let hoursParked = obj.value(forKey: "hoursParked") as? Int
+        let cost = obj.value(forKey: "cost") as? Int
         
-        return Receipt(hoursParked: hoursParked!, street: street, city: city!, postal: postal!, country: country!, licensePlate: licensePlate!, date: date!)
+        return Receipt(hoursParked: hoursParked!, street: street, city: city!, postal: postal!, country: country!, licensePlate: licensePlate!, date: date!, cost: cost!)
         
     }
     /*************************************************************
-     * Method: insertReceipt()
+     * Method: calculateCost()
+     * Description: returns the price based on how many hours parked.
+    *************************************************************/
+    func getCost(hours: Int, date: Date) -> Int{
+        let numberOfReceiptsThisMonth = self.getNumberOfReceiptsForMonth(date: date)
+        
+        if(numberOfReceiptsThisMonth < 3){
+            return 0
+        }
+        
+        if(hours <= 1){
+            return 4
+        }else if(hours <= 3){
+            return 8
+        }else if(hours <= 10){
+            return 12
+        }
+        return 20
+    }
+    
+    /*************************************************************
+     * Method: getNumberOfReceiptsForMonth()
+     * Description: Returns the number of receipts stored for this month/year
+    *************************************************************/
+    func getNumberOfReceiptsForMonth(date: Date) -> Int {
+        let calendar = Calendar.current
+        let year : Int = calendar.component(.year, from: date)
+        let month : Int = calendar.component(.month, from: date)
+        var count : Int = 0
+        
+        let receipts = self.getAllReceipts()
+        for receipt in receipts!{
+            let receiptDate :Date = (receipt.value(forKey: "Date") as? Date)!
+            if( calendar.component(.year, from: receiptDate) == year &&
+                calendar.component(.month, from: receiptDate) == month ) {
+                count += 1
+            }
+        }
+        return count
+    }
+    
+    /*************************************************************
+     * Method: createReceipt()
      * Description: Inserts new receipt into database
     *************************************************************/
-    func insertReceipt(newReceipt: Receipt){
+    func createReceipt(hoursParked: Int, street: String, city: String, postal: String, country: String, licensePlate: String, date: Date){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -48,13 +91,14 @@ public class ReceiptController {
         if (receiptEntity != nil) {
             let newreceipt = NSManagedObject(entity: receiptEntity!, insertInto: managedContext)
             
-            newreceipt.setValue(newReceipt.hoursParked, forKey: "hoursParked")
-            newreceipt.setValue(newReceipt.street, forKey: "street")
-            newreceipt.setValue(newReceipt.city, forKey: "city")
-            newreceipt.setValue(newReceipt.postal, forKey: "postal")
-            newreceipt.setValue(newReceipt.country, forKey: "country")
-            newreceipt.setValue(newReceipt.licensePlate, forKey: "licensePlate")
-            newreceipt.setValue(newReceipt.date, forKey: "date")
+            newreceipt.setValue(hoursParked, forKey: "hoursParked")
+            newreceipt.setValue(street, forKey: "street")
+            newreceipt.setValue(city, forKey: "city")
+            newreceipt.setValue(postal, forKey: "postal")
+            newreceipt.setValue(country, forKey: "country")
+            newreceipt.setValue(licensePlate, forKey: "licensePlate")
+            newreceipt.setValue(date, forKey: "date")
+            newreceipt.setValue(self.getCost(hours: hoursParked, date: date), forKey: "cost")
             
             // Attempt to save data and provide error if it failed
             do {

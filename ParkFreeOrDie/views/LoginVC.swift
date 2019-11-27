@@ -56,7 +56,20 @@ class LoginVC : UIViewController {
                 //succesful login!
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let tabBarVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-                navigationController?.pushViewController(tabBarVC, animated: true)
+                //navigationController?.pushViewController(tabBarVC, animated: true)
+                //navigationController?.popToRootViewController(animated: true)
+                
+                //let navigationController = UINavigationController(rootViewController: tabBarVC)
+                
+                let customViewControllersArray : NSArray = [tabBarVC]
+                self.navigationController?.viewControllers = customViewControllersArray as! [UIViewController]
+                
+                //let appdelegate = UIApplication.shared.delegate as! AppDelegate
+                //appdelegate.window.rootViewController = navigationController
+                self.navigationController?.popToRootViewController(animated: true)
+
+                
+                
             } else {
                 //invalid username/password.
                 inputErrorLabel.text = "Password incorrect"

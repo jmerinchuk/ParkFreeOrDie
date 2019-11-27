@@ -89,19 +89,16 @@ class ConfirmParkingVC : UIViewController {
     @IBAction func btnParkHere(_ sender: Any) {
         // Get LicensePlate from User
         
-        
-        // Create Receipt
-        let newReceipt = Receipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date)
-        
         // Pass Receipt to Receipt Controller
-        self.receiptController.insertReceipt(newReceipt: newReceipt)
+        self.receiptController.createReceipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date)
         
         // Manage Alert Box
        let alertController = UIAlertController(title: "Success!", message: "This is the parking you are looking for", preferredStyle: .alert)
        let okAction = UIAlertAction(title: "OK", style: .default, handler: { (alert: UIAlertAction!) in
-            let mainSB : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let tabBarVC = mainSB.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-            self.navigationController?.pushViewController(tabBarVC, animated: true)
+            //let mainSB : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            //let tabBarVC = mainSB.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            //self.navigationController?.pushViewController(tabBarVC, animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
        })
        alertController.addAction(okAction)
        present(alertController, animated: true)

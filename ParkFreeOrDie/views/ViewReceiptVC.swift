@@ -24,6 +24,12 @@ class ViewReceiptVC: UIViewController {
         super.viewDidLoad()
         
         streetNameLabel.text = receipt?.street
+        cityLabel.text = receipt?.city
+        postalCodeLabel.text = receipt?.postal
+        countryLabel.text = receipt?.country
+        hoursParkedLabel.text = String(receipt!.hoursParked)
+        costLabel.text = String(receipt!.cost)
+        
 
         // Do any additional setup after loading the view.
     }

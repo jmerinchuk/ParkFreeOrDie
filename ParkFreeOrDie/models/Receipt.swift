@@ -26,13 +26,14 @@ class Receipt {
     var country : String
     var licensePlate : String
     var date : Date
+    var cost : Int
     
     
     /*************************************************************
      * Method: init()
      * Description: Initializer for Receipt Object
     *************************************************************/
-    init(hoursParked: Int, street: String, city : String, postal : String, country : String, licensePlate : String, date: Date) {
+    init(hoursParked: Int, street: String, city : String, postal : String, country : String, licensePlate : String, date: Date, cost: Int) {
         self.hoursParked = hoursParked
         self.street = street
         self.city = city
@@ -40,5 +41,6 @@ class Receipt {
         self.country = country
         self.licensePlate = licensePlate
         self.date = date
+        self.cost = cost
     }
 }

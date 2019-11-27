@@ -120,8 +120,7 @@ class ReceiptTVC: UITableViewController {
      *****************************************************************/
     private func addReceipt(hoursParked: Int, street: String, city: String, postal: String, country: String, licensePlate: String, date: Date) {
         let newIndex = receiptController.getAllReceipts()!.count
-        let receipt = Receipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date)
-        self.receiptController.insertReceipt(newReceipt: receipt)
+        self.receiptController.createReceipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date)
         tableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .top)
     }
     
