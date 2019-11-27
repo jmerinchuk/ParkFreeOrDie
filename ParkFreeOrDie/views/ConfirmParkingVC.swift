@@ -19,7 +19,6 @@ import UIKit
 class ConfirmParkingVC : UIViewController {
 
     // Class Variables
-    let receiptController = ReceiptController()
     var street : String = ""
     var city : String = ""
     var postal : String = ""
@@ -29,6 +28,7 @@ class ConfirmParkingVC : UIViewController {
     var time : String = ""
     var hoursParked : Int = 0
     var licensePlate : String = ""
+    var cost : Int = 0
     
     // Outlets
     @IBOutlet var lblStreet: UILabel!
@@ -49,15 +49,7 @@ class ConfirmParkingVC : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getCurrentDateAndTime()
-        setLabels()
-    }
-    
-    /*************************************************************
-     * Method: setLabels()
-     * Description: sets Labels on scene
-    *************************************************************/
-    func setLabels() {
-//        print("ConfirmParking Labels: " + street + " " + city + " " + postal + " " + country)
+        
         lblStreet.text = street
         lblCity.text = city
         lblPostal.text = postal
@@ -65,6 +57,7 @@ class ConfirmParkingVC : UIViewController {
         lblDate.text = dateString
         lblTime.text = time
         lblHours.text = String(hoursParked)
+        lblCost.text = String(cost)
     }
     
     /*************************************************************
@@ -90,14 +83,11 @@ class ConfirmParkingVC : UIViewController {
         // Get LicensePlate from User
         
         // Pass Receipt to Receipt Controller
-        self.receiptController.createReceipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date)
+        ReceiptController.createReceipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date)
         
         // Manage Alert Box
        let alertController = UIAlertController(title: "Success!", message: "This is the parking you are looking for", preferredStyle: .alert)
        let okAction = UIAlertAction(title: "OK", style: .default, handler: { (alert: UIAlertAction!) in
-            //let mainSB : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            //let tabBarVC = mainSB.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-            //self.navigationController?.pushViewController(tabBarVC, animated: true)
             self.navigationController?.popToRootViewController(animated: true)
        })
        alertController.addAction(okAction)

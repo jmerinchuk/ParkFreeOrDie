@@ -167,7 +167,8 @@ class MapVC : UIViewController {
         confirmParkingVC.postal = self.postal
         confirmParkingVC.country = self.country
         confirmParkingVC.hoursParked = self.hoursParked
-//        print("MapVC Variables: " + self.street + " " + self.city + " " + self.postal + " " + self.country)
+        confirmParkingVC.cost = ReceiptController.getCost(hours: self.hoursParked, date: Date())
+        
         navigationController?.pushViewController(confirmParkingVC, animated: true)
     }
     

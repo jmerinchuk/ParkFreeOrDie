@@ -20,7 +20,11 @@ import CoreData
 *****************************************************************/
 public class ReceiptController {
     
-    func receiptFromNSManagedObject(obj: NSManagedObject) -> Receipt{
+    /*************************************************************
+     * Method: receiptFromNSManagedObject()
+     * Description: Returns a Receipt object given an NSManagedObject object.
+    *************************************************************/
+    static func receiptFromNSManagedObject(obj: NSManagedObject) -> Receipt{
         let street = (obj.value(forKey: "street") as? String)!
         let city = obj.value(forKey: "city") as? String
         let postal = obj.value(forKey: "postal") as? String
@@ -35,9 +39,9 @@ public class ReceiptController {
     }
     /*************************************************************
      * Method: calculateCost()
-     * Description: returns the price based on how many hours parked.
+     * Description: returns the price based on how many hours parked, and how many times you have parked this month.
     *************************************************************/
-    func getCost(hours: Int, date: Date) -> Int{
+    static func getCost(hours: Int, date: Date) -> Int{
         let numberOfReceiptsThisMonth = self.getNumberOfReceiptsForMonth(date: date)
         
         if(numberOfReceiptsThisMonth < 3){
@@ -58,13 +62,13 @@ public class ReceiptController {
      * Method: getNumberOfReceiptsForMonth()
      * Description: Returns the number of receipts stored for this month/year
     *************************************************************/
-    func getNumberOfReceiptsForMonth(date: Date) -> Int {
+    static func getNumberOfReceiptsForMonth(date: Date) -> Int {
         let calendar = Calendar.current
         let year : Int = calendar.component(.year, from: date)
         let month : Int = calendar.component(.month, from: date)
         var count : Int = 0
         
-        let receipts = self.getAllReceipts()
+        let receipts = ReceiptController.getAllReceipts()
         for receipt in receipts!{
             let receiptDate :Date = (receipt.value(forKey: "Date") as? Date)!
             if( calendar.component(.year, from: receiptDate) == year &&
@@ -79,7 +83,7 @@ public class ReceiptController {
      * Method: createReceipt()
      * Description: Inserts new receipt into database
     *************************************************************/
-    func createReceipt(hoursParked: Int, street: String, city: String, postal: String, country: String, licensePlate: String, date: Date){
+    static func createReceipt(hoursParked: Int, street: String, city: String, postal: String, country: String, licensePlate: String, date: Date){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -98,7 +102,7 @@ public class ReceiptController {
             newreceipt.setValue(country, forKey: "country")
             newreceipt.setValue(licensePlate, forKey: "licensePlate")
             newreceipt.setValue(date, forKey: "date")
-            newreceipt.setValue(self.getCost(hours: hoursParked, date: date), forKey: "cost")
+            newreceipt.setValue(ReceiptController.getCost(hours: hoursParked, date: date), forKey: "cost")
             
             // Attempt to save data and provide error if it failed
             do {
@@ -114,7 +118,7 @@ public class ReceiptController {
      * Method: updateReceipt(Receipt)
      * Description: Updates  receipt in the table
      *****************************************************************/
-    func updateReceipt(receipt: Receipt, oldTitle: String){
+    static func updateReceipt(receipt: Receipt, oldTitle: String){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -152,7 +156,7 @@ public class ReceiptController {
      * Method: deleteReceipt(Receipt)
      * Description:  Removes existing receipt data
      *****************************************************************/
-    func deleteReceipt(title: String){
+    static func deleteReceipt(title: String){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -183,7 +187,7 @@ public class ReceiptController {
      * Method: getAllReceipts() return NSmanagedObject
      * Description: returns all Receipts
      *****************************************************************/
-    func getAllReceipts() -> [NSManagedObject]?  {
+    static func getAllReceipts() -> [NSManagedObject]?  {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return nil

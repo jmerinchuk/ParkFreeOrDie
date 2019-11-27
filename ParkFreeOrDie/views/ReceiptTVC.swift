@@ -20,34 +20,35 @@ import CoreData
 *****************************************************************/
 class ReceiptTVC: UITableViewController {
     
-    // Class Variables
-    let receiptController = ReceiptController()
-
     /*************************************************************
      * Method: viewDidLoad()
      * Description: Initial Loaded Function
     *************************************************************/
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupLongPressGesture()
-    }
-    
-    /******************************************************************
-     * Method: setupLongPressGesture()
-     * Description: sets up long press gesture
-     *****************************************************************/
-    private func setupLongPressGesture() {
-        let lpGesture : UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
         
-        lpGesture.minimumPressDuration = 1.0
-        self.tableView.addGestureRecognizer(lpGesture) // attach to entire table view
+        //for long press, use the class UILongPressGestureRecognizer
+        //and use:
+        //pressGesture.minimumPressDuration = 1.0
+        //dont forget to have the press handler class accept a UILongPressGestureRecognizer parameter.
+        let pressGesture : UITapGestureRecognizer = UITapGestureRecognizer(target : self, action: #selector(self.handleReceiptPress))
+        self.tableView.addGestureRecognizer(pressGesture)
+    }
+
+    /*************************************************************
+     * Method: viewDidAppear()
+     * Description: Called when the view is shown to the user.
+    *************************************************************/
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DispatchQueue.main.async { self.tableView.reloadData() }
     }
     
     /******************************************************************
      * Method: setupLongPressGesture()
-     * Description: handles the long press gesture.
+     * Description: handles the press gesture.
      *****************************************************************/
-    @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer){
+    @objc func handleReceiptPress(_ gestureRecognizer: UITapGestureRecognizer){
         if gestureRecognizer.state == .ended {
             let touchPoint = gestureRecognizer.location(in: self.tableView)
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {
@@ -69,7 +70,7 @@ class ReceiptTVC: UITableViewController {
      * Description: Returns number of receipts in table
     *************************************************************/
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return receiptController.getAllReceipts()!.count
+        return ReceiptController.getAllReceipts()!.count
     }
 
     /******************************************************************
@@ -79,16 +80,16 @@ class ReceiptTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell_receipt", for: indexPath) as! ReceiptCell
-        if indexPath.row < receiptController.getAllReceipts()!.count {
+        if indexPath.row < ReceiptController.getAllReceipts()!.count {
+            let receipt = ReceiptController.receiptFromNSManagedObject(obj: ReceiptController.getAllReceipts()![indexPath.row])
             
-            let receipt = receiptController.getAllReceipts()![indexPath.row]
-            cell.lblTitle?.text = receipt.value(forKeyPath: "street") as? String
+            cell.lblTitle?.text = receipt.street
             
-            let mydate = receipt.value(forKeyPath: "date") as? Date
+            cell.lblTotal?.text = "$ \(receipt.cost)"
+            
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
-            let date = dateFormatter.string(from: mydate!)
-            print(date)
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let date = dateFormatter.string(from: receipt.date)
             cell.lblSubtitle?.text = date
         }
         return cell
@@ -108,7 +109,7 @@ class ReceiptTVC: UITableViewController {
      *****************************************************************/
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
-        if indexPath.row < receiptController.getAllReceipts()!.count {
+        if indexPath.row < ReceiptController.getAllReceipts()!.count {
             self.deleteReceipt(indexPath: indexPath)
             tableView.reloadData()
         }
@@ -119,8 +120,8 @@ class ReceiptTVC: UITableViewController {
      * Description: Adds a new receipt to ReceiptEntity Table
      *****************************************************************/
     private func addReceipt(hoursParked: Int, street: String, city: String, postal: String, country: String, licensePlate: String, date: Date) {
-        let newIndex = receiptController.getAllReceipts()!.count
-        self.receiptController.createReceipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date)
+        let newIndex = ReceiptController.getAllReceipts()!.count
+        ReceiptController.createReceipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date)
         tableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .top)
     }
     
@@ -130,10 +131,8 @@ class ReceiptTVC: UITableViewController {
      *****************************************************************/
     private func editReceipt(oldTitle: String, hoursParked: Int, street: String, city: String, postal: String, country: String, licensePlate: String, date: Date) {
         //let receipt = Receipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date)
-        //self.receiptController.updateReceipt(receipt: receipt, oldTitle: oldTitle)
+        //ReceiptController.updateReceipt(receipt: receipt, oldTitle: oldTitle)
         //tableView.reloadData()
-        
-
     }
     
     /******************************************************************
@@ -141,9 +140,9 @@ class ReceiptTVC: UITableViewController {
      * Description: Deletes a specific index number passed to it.
      *****************************************************************/
     private func deleteReceipt(indexPath: IndexPath) {
-        let receipt = receiptController.getAllReceipts()![indexPath.row]
+        let receipt = ReceiptController.getAllReceipts()![indexPath.row]
         let title = receipt.value(forKeyPath: "title") as! String
-        receiptController.deleteReceipt(title: title)
+        ReceiptController.deleteReceipt(title: title)
         tableView.reloadData()
     }
     
@@ -155,8 +154,8 @@ class ReceiptTVC: UITableViewController {
         
         //let addAlert = UIAlertController(title: "Edit Receipt", message: "Edit Receipt Details", preferredStyle: .alert)
         
-        let nsObj = receiptController.getAllReceipts()![indexPath.row]
-        let receipt = receiptController.receiptFromNSManagedObject(obj: nsObj)
+        let nsObj = ReceiptController.getAllReceipts()![indexPath.row]
+        let receipt = ReceiptController.receiptFromNSManagedObject(obj: nsObj)
         
         
         let mainSB : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
