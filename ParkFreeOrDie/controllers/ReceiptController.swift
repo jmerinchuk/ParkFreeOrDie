@@ -44,7 +44,7 @@ public class ReceiptController {
     static func getCost(hours: Int, date: Date) -> Int{
         let numberOfReceiptsThisMonth = self.getNumberOfReceiptsForMonth(date: date)
         
-        if(numberOfReceiptsThisMonth < 3){
+        if(numberOfReceiptsThisMonth <= 3){
             return 0
         }
         

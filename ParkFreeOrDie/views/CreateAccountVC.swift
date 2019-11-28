@@ -22,6 +22,7 @@ class CreateAccountVC : UIViewController {
     private var textFields: [UITextField] = []
     
     // Outlets
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
@@ -45,31 +46,87 @@ class CreateAccountVC : UIViewController {
             if((field.text ?? "").isEmpty) {
                 invalidData = true
                 field.backgroundColor = errorColor
+                errorLabel.text = "Fields cannot be left empty"
             }
         }
         
-        //checks for same passwords:
-        if( (passwordTextField.text!) != (repeatPasswordTextField.text!)) {
-            passwordTextField.backgroundColor = errorColor
-            repeatPasswordTextField.backgroundColor = errorColor
-            invalidData = true
-        }
-        
-        //insert into CoreData
-        if(invalidData == false) {
-            let userController : UserController = UserController()
-        
-            userController.insertUser(newUser: User(name: nameTextField.text!,
-                                                    email: emailTextField.text!,
-                                                    phoneNumber: phoneNumberTextField.text!,
-                                                    licensePlate: licensePlateTextField.text!,
-                                                    creditCardNumber: creditCardNumberTextField.text!,
-                                                    creditCardName: creditCardNameTextField.text!,
-                                                    creditCardExpiry: creditCardExpiryTextField.text!,
-                                                    creditCardCVV: creditCardCVVTextField.text!,
-                                                    password: passwordTextField.text!))
+        //if the user has not left any fields empty, we can begin checking validity...
+        if(!invalidData) {
+            var user: User = User(  name: nameTextField.text!,
+                                    email: emailTextField.text!,
+                                    phoneNumber: phoneNumberTextField.text!,
+                                    licensePlate: licensePlateTextField.text!,
+                                    creditCardNumber: creditCardNumberTextField.text!,
+                                    creditCardName: creditCardNameTextField.text!,
+                                    creditCardExpiry: creditCardExpiryTextField.text!,
+                                    creditCardCVV: creditCardCVVTextField.text!,
+                                    password: passwordTextField.text!)
+            //checks for same passwords:
+            if( (passwordTextField.text!) != (repeatPasswordTextField.text!)) {
+                passwordTextField.backgroundColor = errorColor
+                repeatPasswordTextField.backgroundColor = errorColor
+                invalidData = true
+                errorLabel.text = "Passwords do not match"
+            }
             
-            navigationController?.popViewController(animated: true)
+            
+            if(user.nameIsValid() != nil){
+                invalidData = true
+                nameTextField.backgroundColor = errorColor
+                errorLabel.text = user.nameIsValid()
+            }
+            
+            if(user.emailIsValid() != nil){
+                invalidData = true
+                emailTextField.backgroundColor = errorColor
+                errorLabel.text = user.emailIsValid()
+            }
+            
+            if(user.phoneNumberIsValid() != nil){
+                invalidData = true
+                phoneNumberTextField.backgroundColor = errorColor
+                errorLabel.text = user.phoneNumberIsValid()
+            }
+            
+            if(user.licensePlateIsValid() != nil){
+                invalidData = true
+                licensePlateTextField.backgroundColor = errorColor
+                errorLabel.text = user.licensePlateIsValid()
+            }
+            
+            if(user.creditCardNumberIsValid() != nil){
+                invalidData = true
+                creditCardNumberTextField.backgroundColor = errorColor
+                errorLabel.text = user.creditCardNumberIsValid()
+            }
+            
+            if(user.creditCardNameIsValid() != nil){
+                invalidData = true
+                creditCardNameTextField.backgroundColor = errorColor
+                errorLabel.text = user.creditCardNameIsValid()
+            }
+            
+            if(user.creditCardExpiryIsValid() != nil){
+                invalidData = true
+                creditCardExpiryTextField.backgroundColor = errorColor
+                errorLabel.text = user.creditCardExpiryIsValid()
+            }
+            
+            if(user.creditCardCVVIsValid() != nil){
+                invalidData = true
+                creditCardCVVTextField.backgroundColor = errorColor
+                errorLabel.text = user.creditCardCVVIsValid()
+            }
+            
+            
+            //insert into CoreData
+            if(invalidData == false) {
+                let userController : UserController = UserController()
+            
+                userController.insertUser(newUser: user)
+                
+                navigationController?.popViewController(animated: true)
+            }
         }
     }
     
@@ -79,6 +136,8 @@ class CreateAccountVC : UIViewController {
     *************************************************************/
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        errorLabel.text = ""
         
         textFields = [nameTextField, emailTextField, phoneNumberTextField, licensePlateTextField,
                       creditCardNumberTextField, creditCardNameTextField, creditCardExpiryTextField, creditCardCVVTextField,
@@ -92,6 +151,7 @@ class CreateAccountVC : UIViewController {
     
     @objc func restoreOriginalColor(sender: UITextField) {
         sender.backgroundColor = UIColor.white
+        errorLabel.text = ""
     }
     
 }

@@ -80,8 +80,9 @@ class ReceiptTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell_receipt", for: indexPath) as! ReceiptCell
-        if indexPath.row < ReceiptController.getAllReceipts()!.count {
-            let receipt = ReceiptController.receiptFromNSManagedObject(obj: ReceiptController.getAllReceipts()![indexPath.row])
+        let numberOfReceipts = ReceiptController.getAllReceipts()!.count
+        if indexPath.row < numberOfReceipts {
+            let receipt = ReceiptController.receiptFromNSManagedObject(obj: ReceiptController.getAllReceipts()![numberOfReceipts - 1 - indexPath.row])
             
             cell.lblTitle?.text = receipt.street
             

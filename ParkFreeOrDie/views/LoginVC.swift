@@ -54,6 +54,8 @@ class LoginVC : UIViewController {
             
             if(user?.email == emailTextField.text && user?.password == passwordTextField.text){
                 //succesful login!
+                UserController.setLoggedInUser(user: user!)
+                
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let tabBarVC = storyBoard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
                 //navigationController?.pushViewController(tabBarVC, animated: true)

@@ -11,6 +11,17 @@ import UIKit
 import CoreData
 
 public class UserController {
+    
+    static var loggedInUser : User?
+    
+    static func getLoggedInUser() -> User? {
+        return UserController.loggedInUser ?? nil
+    }
+    
+    static func setLoggedInUser(user: User?) {
+        UserController.loggedInUser = user
+    }
+    
     func insertUser(newUser: User){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -39,6 +50,34 @@ public class UserController {
             } catch let error as NSError {
                 print("Saving user failed: \(error), \(error.userInfo)")
             }
+        }
+    }
+    
+    func updateUser(user: User) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserEntity")
+        fetchRequest.predicate = NSPredicate(format: "email = %@", user.email)
+        do{
+            let result = try managedContext.fetch(fetchRequest) as? [NSManagedObject]
+            if result!.count != 0{
+
+                let managedObject = result![0]
+                managedObject.setValue(user.name, forKey: "name")
+                managedObject.setValue(user.phoneNumber, forKey: "phoneNumber")
+                managedObject.setValue(user.licensePlate, forKey: "licensePlate")
+                managedObject.setValue(user.creditCardNumber, forKey: "creditCardNumber")
+                managedObject.setValue(user.creditCardName, forKey: "creditCardName")
+                managedObject.setValue(user.creditCardExpiry, forKey: "creditCardExpiry")
+                managedObject.setValue(user.creditCardCVV, forKey: "creditCardCVV")
+                managedObject.setValue(user.password, forKey: "password")
+                try managedContext.save()
+            }
+        }catch let error as NSError {
+            print("Updating user failed: \(error), \(error.userInfo)")
         }
     }
     
