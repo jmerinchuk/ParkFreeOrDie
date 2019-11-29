@@ -3,10 +3,7 @@
 * Programmer: Jeremy Clark
 * Programmer: Jayce Merinchuk
 * File: ReceiptController.swift
-* Desccription:
-*
-* Sources:
-*
+* Desccription: Manages Receipts in Database
 *****************************************************************/
 
 // Imports

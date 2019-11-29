@@ -3,10 +3,7 @@
  * Programmer: Jeremy Clark
  * Programmer: Jayce Merinchuk
  * File: CreateAccountVC.swift
- * Desccription:
- *
- * Sources:
- *
+ * Desccription: Creates Account for User
  *****************************************************************/
 
 // Imports
@@ -14,12 +11,9 @@ import UIKit
 
 /*****************************************************************
  * Class: CreateAccountVC : UIViewController
- * Description:
+ * Description: Allows the user to create an account to log in
 *****************************************************************/
 class CreateAccountVC : UIViewController {
-
-    // Class Variables
-    private var textFields: [UITextField] = []
     
     // Outlets
     @IBOutlet weak var errorLabel: UILabel!
@@ -34,7 +28,13 @@ class CreateAccountVC : UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
     
+    // Class Variables
+    private var textFields: [UITextField] = []
     
+    /*************************************************************
+     * Method: onCreateAccountButtonTouchUpInside()
+     * Description: Does error checking on input boxes and creates new user.
+    *************************************************************/
     @IBAction func onCreateAccountButtonTouchUpInside(_ sender: Any) {
         //check all fields for valid info.
         //if one fails, color it red.
@@ -52,7 +52,7 @@ class CreateAccountVC : UIViewController {
         
         //if the user has not left any fields empty, we can begin checking validity...
         if(!invalidData) {
-            var user: User = User(  name: nameTextField.text!,
+            let user: User = User(  name: nameTextField.text!,
                                     email: emailTextField.text!,
                                     phoneNumber: phoneNumberTextField.text!,
                                     licensePlate: licensePlateTextField.text!,
@@ -68,7 +68,6 @@ class CreateAccountVC : UIViewController {
                 invalidData = true
                 errorLabel.text = "Passwords do not match"
             }
-            
             
             if(user.nameIsValid() != nil){
                 invalidData = true
@@ -118,7 +117,6 @@ class CreateAccountVC : UIViewController {
                 errorLabel.text = user.creditCardCVVIsValid()
             }
             
-            
             //insert into CoreData
             if(invalidData == false) {
                 let userController : UserController = UserController()
@@ -136,7 +134,6 @@ class CreateAccountVC : UIViewController {
     *************************************************************/
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         errorLabel.text = ""
         
         textFields = [nameTextField, emailTextField, phoneNumberTextField, licensePlateTextField,
@@ -149,6 +146,10 @@ class CreateAccountVC : UIViewController {
         }
     }
     
+    /*************************************************************
+     * Method: restoreOriginalColor()
+     * Description: Changes colour back ot white and removes error text.
+    *************************************************************/
     @objc func restoreOriginalColor(sender: UITextField) {
         sender.backgroundColor = UIColor.white
         errorLabel.text = ""

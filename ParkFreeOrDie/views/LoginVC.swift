@@ -3,10 +3,7 @@
  * Programmer: Jeremy Clark
  * Programmer: Jayce Merinchuk
  * File: LoginVC.swift
- * Desccription:
- *
- * Sources:
- *
+ * Desccription: Main screen for user to login with email and password
  *****************************************************************/
 
 // Imports
@@ -14,19 +11,20 @@ import UIKit
 
 /*****************************************************************
  * Class: LoginVC : UIViewController
- * Description:
+ * Description: Displays a text field for user to login with email and password or create new Account
 *****************************************************************/
 class LoginVC : UIViewController {
 
-    // Class Variables
-    
-    
     // Outlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var inputErrorLabel: UILabel!
     
+    /*************************************************************
+     * Method: onLoginButtonTouchUpInside()
+     * Description: Does error checking against Database for user existing.
+    *************************************************************/
     @IBAction func onLoginButtonTouchUpInside(_ sender: Any) {
         let errorColor: UIColor = UIColor(red: 1.0, green: 0.8, blue: 0.8, alpha: 1.0)
         var inputError: Bool = false
@@ -70,8 +68,6 @@ class LoginVC : UIViewController {
                 //appdelegate.window.rootViewController = navigationController
                 self.navigationController?.popToRootViewController(animated: true)
 
-                
-                
             } else {
                 //invalid username/password.
                 inputErrorLabel.text = "Password incorrect"
@@ -92,7 +88,10 @@ class LoginVC : UIViewController {
         passwordTextField.addTarget(self, action: #selector(restoreOriginalColor(sender:)), for: .editingChanged)
     }
     
-    
+    /*************************************************************
+     * Method: restoreOriginalColor()
+     * Description: Changes text box back to white. and removes error.
+    *************************************************************/
     @objc func restoreOriginalColor(sender: UITextField) {
         sender.backgroundColor = UIColor.white
         inputErrorLabel.text = ""

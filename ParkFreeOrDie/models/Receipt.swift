@@ -3,10 +3,7 @@
  * Programmer: Jeremy Clark
  * Programmer: Jayce Merinchuk
  * File: Receipt.swift
- * Desccription:
- *
- * Sources:
- *
+ * Desccription: Creates a receipt object with details.
  *****************************************************************/
 
 // Imports
@@ -28,7 +25,6 @@ class Receipt {
     var date : Date
     var cost : Int
     
-    
     /*************************************************************
      * Method: init()
      * Description: Initializer for Receipt Object
@@ -44,6 +40,10 @@ class Receipt {
         self.cost = cost
     }
     
+    /*************************************************************
+     * Method: getDateAsString() Return String
+     * Description: Returns date as a string.
+    *************************************************************/
     func getDateAsString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"

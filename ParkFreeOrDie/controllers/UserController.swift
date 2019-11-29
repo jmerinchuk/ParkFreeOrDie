@@ -3,10 +3,7 @@
 * Programmer: Jeremy Clark
 * Programmer: Jayce Merinchuk
 * File: UserController.swift
-* Desccription:
-*
-* Sources:
-*
+* Desccription: Manages users in Database.
 *****************************************************************/
 
 // Imports
@@ -14,19 +11,35 @@ import Foundation
 import UIKit
 import CoreData
 
-
+/*****************************************************************
+ * Class: UserController
+ * Description: Functions for managing Users.
+*****************************************************************/
 public class UserController {
     
+    // Class Variables
     static var loggedInUser : User?
     
+    /*************************************************************
+     * Method: getLoggedInUser() Return User?
+     * Description: Gets current user that is logged in.
+    *************************************************************/
     static func getLoggedInUser() -> User? {
         return UserController.loggedInUser ?? nil
     }
     
+    /*************************************************************
+     * Method: setLoggedInUser(user)
+     * Description: Sets current user that is logged in.
+    *************************************************************/
     static func setLoggedInUser(user: User?) {
         UserController.loggedInUser = user
     }
     
+    /*************************************************************
+     * Method: insertUser(user)
+     * Description: Inserts new user into database
+    *************************************************************/
     func insertUser(newUser: User){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -58,6 +71,10 @@ public class UserController {
         }
     }
     
+    /*************************************************************
+     * Method: updateUser(user)
+     * Description: Updates user in database
+    *************************************************************/
     func updateUser(user: User) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -86,6 +103,10 @@ public class UserController {
         }
     }
     
+    /*************************************************************
+     * Method: getUserByEmail(email) Return User?
+     * Description: Gets a user from the database
+    *************************************************************/
     func getUserByEmail(email: String) -> User? {
         let allUsers = getAllUsers()
         if(allUsers == nil) {
@@ -108,6 +129,10 @@ public class UserController {
         return nil
     }
     
+    /*************************************************************
+     * Method: getAllUSers() Return NSManagedObject Array
+     * Description: Gets all users in the system.
+    *************************************************************/
     func getAllUsers() -> [NSManagedObject]? {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return nil

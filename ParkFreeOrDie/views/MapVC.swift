@@ -25,7 +25,7 @@ protocol HandleMapSearch {
 
 /*****************************************************************
  * Class: MapVC : UIViewController
- * Description:
+ * Description: The map alows the user to search for a place to park
 *****************************************************************/
 class MapVC : UIViewController {
 
@@ -135,7 +135,7 @@ class MapVC : UIViewController {
                 if pm.count > 0 {
                     let pm = placemarks![0]
                     if pm.thoroughfare != nil {
-                        self.street = pm.thoroughfare!
+                        self.street = String(pm.subThoroughfare!) + " " + pm.thoroughfare!
                     }
                     if pm.locality != nil {
                         self.city = pm.locality!
