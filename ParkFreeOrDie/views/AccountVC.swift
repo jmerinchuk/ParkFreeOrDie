@@ -3,10 +3,7 @@
  * Programmer: Jeremy Clark
  * Programmer: Jayce Merinchuk
  * File: AccountVC.swift
- * Desccription:
- *
- * Sources:
- *
+ * Desccription: Allows the user to edit any of their details.
  *****************************************************************/
 
 // Imports
@@ -14,7 +11,7 @@ import UIKit
 
 /*****************************************************************
  * Class: AccountVC : UIViewController
- * Description:
+ * Description: Displays user details and allows for editing.
 *****************************************************************/
 class AccountVC : UIViewController {
 
@@ -26,16 +23,14 @@ class AccountVC : UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var licensePlateTextField: UITextField!
-    
     @IBOutlet weak var cardNumberTextField: UITextField!
     @IBOutlet weak var cardNameTextField: UITextField!
     @IBOutlet weak var cardExpiryDateTextField: UITextField!
     @IBOutlet weak var cardCVVTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordRepeatTextField: UITextField!
-    
     @IBOutlet weak var errorLabel: UILabel!
+    
     /*************************************************************
      * Method: viewDidLoad()
      * Description: Initial Loaded Function
@@ -51,23 +46,32 @@ class AccountVC : UIViewController {
             field.addTarget(self, action: #selector(restoreOriginalColor(sender:)), for: .editingChanged)
         }
     }
+    
+    /*************************************************************
+     * Method: onLogoutButtonPress()
+     * Description: sets user to nil and logs out.
+    *************************************************************/
     @IBAction func onLogoutButtonPress(_ sender: Any) {
         UserController.setLoggedInUser(user: nil)
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabBarVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! UIViewController
+        let tabBarVC = storyBoard.instantiateViewController(withIdentifier: "LoginVC")
         let customViewControllersArray : NSArray = [tabBarVC]
         self.navigationController?.viewControllers = customViewControllersArray as! [UIViewController]
         self.navigationController?.popToRootViewController(animated: true)
     }
     
+    /*************************************************************
+     * Method: onSaveChangesButtonPress()
+     * Description: Completes error checking and saves account changes.
+    *************************************************************/
     @IBAction func onSaveChangesButtonPress(_ sender: Any) {
-        //check all fields for valid info.
-        //if one fails, color it red.
+        // Check all fields for valid info.
+        // If one fails, color it red.
         var invalidData = false
         let errorColor: UIColor = UIColor(red: 1.0, green: 0.8, blue: 0.8, alpha: 1.0)
         
-        //checks for empty fields...
+        // Checks for empty fields...
         for field in textFields {
             if((field.text ?? "").isEmpty) {
                 invalidData = true
@@ -75,7 +79,7 @@ class AccountVC : UIViewController {
                 errorLabel.text = "Fields cannot be left empty"
             }
         }
-        //if the user has not left any fields empty, we can begin checking validity...
+        // If the user has not left any fields empty, we can begin checking validity...
         if(!invalidData) {
             let user: User = User(  name: nameTextField.text!,
                                     email: emailTextField.text!,
@@ -86,7 +90,7 @@ class AccountVC : UIViewController {
                                     creditCardExpiry: cardExpiryDateTextField.text!,
                                     creditCardCVV: cardCVVTextField.text!,
                                     password: passwordTextField.text!)
-            //checks for same passwords:
+            // Checks for same passwords:
             if( (passwordTextField.text!) != (passwordRepeatTextField.text!)) {
                 passwordTextField.backgroundColor = errorColor
                 passwordRepeatTextField.backgroundColor = errorColor
@@ -144,7 +148,7 @@ class AccountVC : UIViewController {
             }
             
             
-            //insert into CoreData
+            // Insert into CoreData
             if(invalidData == false) {
                 let userController : UserController = UserController()
             
@@ -157,7 +161,6 @@ class AccountVC : UIViewController {
                 self.navigationController?.popToRootViewController(animated: true)
             }
         }
-        
     }
     
     /*************************************************************
@@ -178,6 +181,10 @@ class AccountVC : UIViewController {
         errorLabel.text = ""
     }
     
+    /*************************************************************
+     * Method: restoreOriginalColor()
+     * Description: fixes background color to white and removes error text.
+    *************************************************************/
     @objc func restoreOriginalColor(sender: UITextField) {
         sender.backgroundColor = UIColor.white
         errorLabel.text = ""

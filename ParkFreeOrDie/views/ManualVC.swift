@@ -3,25 +3,19 @@
  * Programmer: Jeremy Clark
  * Programmer: Jayce Merinchuk
  * File: ManualVC.swift
- * Desccription:
- *
- * Sources:
- *
+ * Desccription: MAnages the Manual Scene to display the app manual.
  *****************************************************************/
 
 // Imports
 import UIKit
-import WebKit // Make Web Page to display manual
+import WebKit
 
 /*****************************************************************
  * Class: ManualVC : UIViewController
- * Description:
+ * Description: The VC sets up the view for the manual .html page.
 *****************************************************************/
 class ManualVC : UIViewController, WKUIDelegate {
 
-    // Class Variables
-    
-    
     // Outlets
     @IBOutlet var webView : WKWebView!
     
@@ -38,8 +32,8 @@ class ManualVC : UIViewController, WKUIDelegate {
     }
         
     /*************************************************************
-     * Method: viewDidLoad()
-     * Description: Initial Loaded Function
+     * Method: loadView()
+     * Description: sets up webconfiguration and delegate
     *************************************************************/
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()

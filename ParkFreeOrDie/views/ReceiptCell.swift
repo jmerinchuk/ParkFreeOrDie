@@ -3,10 +3,7 @@
  * Programmer: Jeremy Clark
  * Programmer: Jayce Merinchuk
  * File: ReceiptCell.swift
- * Desccription:
- *
- * Sources:
- *
+ * Desccription: Manages the Cell details for the receipt list.
  *****************************************************************/
 
 // Imports
@@ -22,7 +19,6 @@ class ReceiptCell: UITableViewCell {
     @IBOutlet var lblTitle : UILabel!
     @IBOutlet var lblSubtitle : UILabel!
     @IBOutlet var lblTotal: UILabel!
-    
 
     /*************************************************************
      * Method: awakeFromNib()
@@ -30,7 +26,6 @@ class ReceiptCell: UITableViewCell {
     *************************************************************/
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     /*************************************************************
@@ -39,7 +34,6 @@ class ReceiptCell: UITableViewCell {
     *************************************************************/
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure Selected State
     }
 
 }

@@ -3,7 +3,7 @@
  * Programmer: Jeremy Clark
  * Programmer: Jayce Merinchuk
  * File: MapVC.swift
- * Desccription:
+ * Desccription: Displays the map and allows for searching.
  *
  * Sources:
  *      Reverse Geocoding Address from Lat and Long

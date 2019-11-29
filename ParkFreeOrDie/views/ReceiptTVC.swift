@@ -5,8 +5,6 @@
  * File: ReceiptTVC.swift
  * Desccription:
  *
- * Sources:
- *
  *****************************************************************/
 
 // Imports
@@ -16,7 +14,7 @@ import CoreData
 
 /*****************************************************************
  * Class: ReceiptTVC : UITableViewController
- * Description:
+ * Description: Manages the Table View for all reeceipts in the database.
 *****************************************************************/
 class ReceiptTVC: UITableViewController {
     

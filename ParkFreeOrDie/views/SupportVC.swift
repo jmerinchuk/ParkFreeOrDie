@@ -3,10 +3,7 @@
  * Programmer: Jeremy Clark
  * Programmer: Jayce Merinchuk
  * File: SupportVC.swift
- * Desccription:
- *
- * Sources:
- *
+ * Desccription: Display options when asking for support.
  *****************************************************************/
 
 // Imports
@@ -16,7 +13,7 @@ import MessageUI
 
 /*****************************************************************
  * Class: SupportVC : UIViewController
- * Description:
+ * Description: Provides support options to the user if they are having difficulties.
 *****************************************************************/
 class SupportVC : UIViewController {
 
@@ -38,7 +35,7 @@ class SupportVC : UIViewController {
         let callString : String = "tel://\(phoneNumber)"
         
         let url = URL(string: callString)
-        print("URL : \(url)")
+        print("URL : \(String(describing: url))")
         
         // check if app is available to execute the created URL
         if UIApplication.shared.canOpenURL(url!) {
@@ -62,7 +59,6 @@ class SupportVC : UIViewController {
 extension SupportVC : MFMessageComposeViewControllerDelegate {
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        // Operations to perform when message composer finishes with results
         controller.dismiss(animated: true, completion: nil)
     }
     

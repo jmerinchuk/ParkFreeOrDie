@@ -3,10 +3,7 @@
  * Programmer: Jeremy Clark
  * Programmer: Jayce Merinchuk
  * File: EmailVC.swift
- * Desccription:
- *
- * Sources:
- *
+ * Desccription: Displays screen for user to type email asking for support
  *****************************************************************/
 
 // Imports
@@ -15,7 +12,7 @@ import MessageUI
 
 /*****************************************************************
  * Class: EmailVC : UIViewController
- * Description:
+ * Description: Displays subject and message text field boxes to be typed in.
 *****************************************************************/
 class EmailVC : UIViewController {
     
@@ -33,7 +30,7 @@ class EmailVC : UIViewController {
     
     /*************************************************************
      * Method: btnSendEmail()
-     * Description: Sends email to
+     * Description: Sends email.
     *************************************************************/
     @IBAction func btnSendEmail(_ sender: Any) {
         print("Trying to send email...")
@@ -74,7 +71,6 @@ class EmailVC : UIViewController {
 extension EmailVC : MFMessageComposeViewControllerDelegate {
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        // Operations to perform when message composer finishes with results
         controller.dismiss(animated: true, completion: nil)
     }
     

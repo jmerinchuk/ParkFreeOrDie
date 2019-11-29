@@ -3,10 +3,7 @@
  * Programmer: Jeremy Clark
  * Programmer: Jayce Merinchuk
  * File: ParkingVC.swift
- * Desccription:
- *
- * Sources:
- *
+ * Desccription: Displays box for number of hours and allows the usre to proceed to map screen.
  *****************************************************************/
 
 // Imports
@@ -14,16 +11,16 @@ import UIKit
 
 /*****************************************************************
  * Class: AccountVC : UIViewController
- * Description:
+ * Description: Displays the Parking Tab view where user can add number of hours.
 *****************************************************************/
 class ParkingVC : UIViewController {
-
-    // Class Variables
-    var hoursParked : Int = 0
     
     // Outlets
     @IBOutlet var txtHours: UITextField!
     @IBOutlet var lblDate: UILabel!
+    
+    // Class Variables
+    var hoursParked : Int = 0
     
     /*************************************************************
      * Method: viewDidLoad()
@@ -47,7 +44,7 @@ class ParkingVC : UIViewController {
     
     /*************************************************************
      * Method: btnFindParking()
-     * Description:
+     * Description: Checks for a number of hours and proceeds to the next screen.
     *************************************************************/
     @IBAction func btnFindParking(_ sender: Any) {
         hoursParked = Int(txtHours.text!) ?? 0
@@ -63,8 +60,5 @@ class ParkingVC : UIViewController {
             alertController.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(alertController, animated: true, completion: nil)
         }
-        
-        
-        
     }
 }

@@ -1,15 +1,21 @@
-//
-//  EditReceiptVC.swift
-//  ParkFreeOrDie
-//
-//  Created by jermey on 2019-11-25.
-//  Copyright © 2019 MerinClark Ltd. All rights reserved.
-//
+/*****************************************************************
+* Project: ParkFreeOrDie
+* Programmer: Jeremy Clark
+* Programmer: Jayce Merinchuk
+* File: ViewReceiptVC.swift
+* Desccription: This screen shows the receipt details to the user.
+*****************************************************************/
 
+// Imports
 import UIKit
 
+/*****************************************************************
+ * Class: ViewReceiptVC : UIViewController
+ * Description: Displays information about parking receipt for editing.
+*****************************************************************/
 class ViewReceiptVC: UIViewController {
     
+    // Outlets
     @IBOutlet weak var streetNameLabel: UITextField!
     @IBOutlet weak var cityLabel: UITextField!
     @IBOutlet weak var postalCodeLabel: UITextField!
@@ -18,11 +24,17 @@ class ViewReceiptVC: UIViewController {
     @IBOutlet weak var hoursParkedLabel: UITextField!
     @IBOutlet weak var costLabel: UITextField!
     
+    // Class Variables
     var receipt : Receipt?
     
+    /*************************************************************
+     * Method: viewDidLoad()
+     * Description: Initial Loaded Function
+    *************************************************************/
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Fill boxes with information if available
         streetNameLabel.text = receipt?.street
         cityLabel.text = receipt?.city
         postalCodeLabel.text = receipt?.postal
@@ -30,20 +42,5 @@ class ViewReceiptVC: UIViewController {
         hoursParkedLabel.text = String(receipt!.hoursParked)
         costLabel.text = String(receipt!.cost)
         dateLabel.text = String(receipt!.getDateAsString())
-        
-
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

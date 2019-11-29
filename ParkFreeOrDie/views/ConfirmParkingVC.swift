@@ -3,10 +3,7 @@
  * Programmer: Jeremy Clark
  * Programmer: Jayce Merinchuk
  * File: ConfirmParkingVC.swift
- * Desccription:
- *
- * Sources:
- *
+ * Desccription: Display finla receipt details to the user.
  *****************************************************************/
 
 // Imports
@@ -14,21 +11,9 @@ import UIKit
 
 /*****************************************************************
  * Class: ParkingVC : UIViewController
- * Description:
+ * Description: Manages the final parking receipt details.
 *****************************************************************/
 class ConfirmParkingVC : UIViewController {
-
-    // Class Variables
-    var street : String = ""
-    var city : String = ""
-    var postal : String = ""
-    var country : String = ""
-    var date : Date = Date()
-    var dateString : String = ""
-    var time : String = ""
-    var hoursParked : Int = 0
-    var licensePlate : String = ""
-    var cost : Int = 0
     
     // Outlets
     @IBOutlet var lblStreet: UILabel!
@@ -41,6 +26,18 @@ class ConfirmParkingVC : UIViewController {
     @IBOutlet var lblRate: UILabel!
     @IBOutlet var lblCost: UILabel!
     @IBOutlet var lblHours: UILabel!
+    
+    // Class Variables
+    var street : String = ""
+    var city : String = ""
+    var postal : String = ""
+    var country : String = ""
+    var date : Date = Date()
+    var dateString : String = ""
+    var time : String = ""
+    var hoursParked : Int = 0
+    var licensePlate : String = ""
+    var cost : Int = 0
     
     /*************************************************************
      * Method: viewDidLoad()

@@ -3,10 +3,9 @@
 * Programmer: Jeremy Clark
 * Programmer: Jayce Merinchuk
 * File: LocationSearchTVC.swift
-* Desccription:
+* Desccription: Displays a table of potential locations for the user
 *
-* Sources:
-*
+* Sources: Used a MapKit tutorial
 *****************************************************************/
 
 // Imports
@@ -15,7 +14,7 @@ import MapKit
 
 /*****************************************************************
  * Class: LocationSearchTVC : UITableViewController
- * Description: 
+ * Description:  Manages the table that pops up when searching on the map.
 *****************************************************************/
 class LocationSearchTVC : UITableViewController {
     
@@ -26,7 +25,7 @@ class LocationSearchTVC : UITableViewController {
     
     /*************************************************************
      * Method: parseAddress()
-     * Description:
+     * Description: Manages getting address of typed place in search bar.
     *************************************************************/
     func parseAddress(selectedItem:MKPlacemark) -> String {
         // put a space between "4" and "Melrose Place"
@@ -54,6 +53,10 @@ class LocationSearchTVC : UITableViewController {
     
 }
 
+/*****************************************************************
+ * Extension: LocationSearchTVC
+ * Description: Updates results from search bar.
+*****************************************************************/
 extension LocationSearchTVC : UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let mapView = mapView,
@@ -72,6 +75,10 @@ extension LocationSearchTVC : UISearchResultsUpdating {
     }
 }
 
+/*****************************************************************
+ * Extension: LocationSearchTVC
+ * Description: Matches items for typed box.
+*****************************************************************/
 extension LocationSearchTVC {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return matchingItems.count
@@ -86,6 +93,10 @@ extension LocationSearchTVC {
     }
 }
 
+/*****************************************************************
+ * Extension: LocationSearchTVC
+ * Description: Manages the selected item and dropped pin
+*****************************************************************/
 extension LocationSearchTVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = matchingItems[indexPath.row].placemark
