@@ -1,14 +1,19 @@
-//
-//  UserController.swift
-//  ParkFreeOrDie
-//
-//  Created by jermey on 2019-11-11.
-//  Copyright © 2019 MerinClark Ltd. All rights reserved.
-//
+/*****************************************************************
+* Project: ParkFreeOrDie
+* Programmer: Jeremy Clark
+* Programmer: Jayce Merinchuk
+* File: UserController.swift
+* Desccription:
+*
+* Sources:
+*
+*****************************************************************/
 
+// Imports
 import Foundation
 import UIKit
 import CoreData
+
 
 public class UserController {
     
