@@ -56,8 +56,8 @@ class ConfirmParkingVC : UIViewController {
         lblCountry.text = country
         lblDate.text = dateString
         lblTime.text = time
-        lblHours.text = String(hoursParked)
-        lblCost.text = String(cost)
+        lblHours.text = String(Float(hoursParked))
+        lblCost.text = "$" + String(Float(cost))
     }
     
     /*************************************************************
