@@ -156,14 +156,14 @@ public class ReceiptController {
      * Method: deleteReceipt(Receipt)
      * Description:  Removes existing receipt data
      *****************************************************************/
-    static func deleteReceipt(title: String){
+    static func deleteReceipt(receipt: Receipt){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ReceiptEntity")
-        fetchRequest.predicate = NSPredicate(format: "title = %@", title)
+        fetchRequest.predicate = NSPredicate(format: "date = %@", receipt.date as NSDate)
         
         // Attempt to fetch the existing Receipt
         do {

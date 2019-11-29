@@ -80,9 +80,8 @@ class ReceiptTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell_receipt", for: indexPath) as! ReceiptCell
-        let numberOfReceipts = ReceiptController.getAllReceipts()!.count
-        if indexPath.row < numberOfReceipts {
-            let receipt = ReceiptController.receiptFromNSManagedObject(obj: ReceiptController.getAllReceipts()![numberOfReceipts - 1 - indexPath.row])
+        if indexPath.row < ReceiptController.getAllReceipts()!.count {
+            let receipt = ReceiptController.receiptFromNSManagedObject(obj: ReceiptController.getAllReceipts()![ReceiptController.getAllReceipts()!.count - 1 - indexPath.row])
             
             cell.lblTitle?.text = receipt.street
             
@@ -138,9 +137,8 @@ class ReceiptTVC: UITableViewController {
      * Description: Deletes a specific index number passed to it.
      *****************************************************************/
     private func deleteReceipt(indexPath: IndexPath) {
-        let receipt = ReceiptController.getAllReceipts()![indexPath.row]
-        let title = receipt.value(forKeyPath: "title") as! String
-        ReceiptController.deleteReceipt(title: title)
+        let receipt = ReceiptController.receiptFromNSManagedObject(obj: ReceiptController.getAllReceipts()![ReceiptController.getAllReceipts()!.count - 1 - indexPath.row])
+        ReceiptController.deleteReceipt(receipt: receipt)
         tableView.reloadData()
     }
     
@@ -152,7 +150,7 @@ class ReceiptTVC: UITableViewController {
         
         //let addAlert = UIAlertController(title: "Edit Receipt", message: "Edit Receipt Details", preferredStyle: .alert)
         
-        let nsObj = ReceiptController.getAllReceipts()![indexPath.row]
+        let nsObj = ReceiptController.getAllReceipts()![ReceiptController.getAllReceipts()!.count - 1 - indexPath.row]
         let receipt = ReceiptController.receiptFromNSManagedObject(obj: nsObj)
         
         
