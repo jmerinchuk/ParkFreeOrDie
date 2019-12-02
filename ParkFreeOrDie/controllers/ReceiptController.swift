@@ -38,10 +38,10 @@ public class ReceiptController {
      * Method: calculateCost()
      * Description: returns the price based on how many hours parked, and how many times you have parked this month.
     *************************************************************/
-    static func getCost(hours: Int, date: Date) -> Int{
+    static func getCost(hours: Int, date: Date) -> Int {
         let numberOfReceiptsThisMonth = self.getNumberOfReceiptsForMonth(date: date)
         
-        if(numberOfReceiptsThisMonth <= 3){
+        if(numberOfReceiptsThisMonth < 3){
             return 0
         }
         

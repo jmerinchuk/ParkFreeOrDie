@@ -37,6 +37,14 @@ public class UserController {
     }
     
     /*************************************************************
+     * Method: getUserPlate() Return String
+     * Description: Returns user plate number
+    *************************************************************/
+    static func getUserPlate() -> String {
+        return ""
+    }
+    
+    /*************************************************************
      * Method: insertUser(user)
      * Description: Inserts new user into database
     *************************************************************/

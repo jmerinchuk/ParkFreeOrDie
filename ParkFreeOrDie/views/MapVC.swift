@@ -134,8 +134,12 @@ class MapVC : UIViewController {
 
                 if pm.count > 0 {
                     let pm = placemarks![0]
+                    
+                    if pm.subThoroughfare != nil {
+                        self.street = String(pm.subThoroughfare!) + " "
+                    }
                     if pm.thoroughfare != nil {
-                        self.street = String(pm.subThoroughfare!) + " " + pm.thoroughfare!
+                        self.street += pm.thoroughfare!
                     }
                     if pm.locality != nil {
                         self.city = pm.locality!
@@ -161,6 +165,8 @@ class MapVC : UIViewController {
     func openScene() {
         let mainSB : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let confirmParkingVC = mainSB.instantiateViewController(withIdentifier: "ConfirmParkingScene") as! ConfirmParkingVC
+        
+//        print("Hours parked in Map: " + String(hoursParked))
         
         confirmParkingVC.street = self.street
         confirmParkingVC.city = self.city

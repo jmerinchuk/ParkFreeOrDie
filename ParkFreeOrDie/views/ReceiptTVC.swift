@@ -83,7 +83,7 @@ class ReceiptTVC: UITableViewController {
             
             cell.lblTitle?.text = receipt.street
             
-            cell.lblTotal?.text = "$ \(receipt.cost)"
+            cell.lblTotal?.text = "$ \(String(format: "%.2f", receipt.cost))"
 
             cell.lblSubtitle?.text = receipt.getDateAsString()
         }

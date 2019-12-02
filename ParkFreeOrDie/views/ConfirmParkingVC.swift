@@ -23,9 +23,9 @@ class ConfirmParkingVC : UIViewController {
     @IBOutlet var lblDate: UILabel!
     @IBOutlet var lblTime: UILabel!
     @IBOutlet var lblTimesParked: UILabel!
-    @IBOutlet var lblRate: UILabel!
     @IBOutlet var lblCost: UILabel!
     @IBOutlet var lblHours: UILabel!
+    @IBOutlet var lblPlate: UILabel!
     
     // Class Variables
     var street : String = ""
@@ -47,14 +47,18 @@ class ConfirmParkingVC : UIViewController {
         super.viewDidLoad()
         getCurrentDateAndTime()
         
+        cost = ReceiptController.getCost(hours: hoursParked, date: date)
+        lblPlate.text = "PLATE"
+        lblCost.text = "$" + String(format: "%.2f", ReceiptController.getCost(hours: hoursParked, date: date))
+        lblTimesParked.text = String(format: "%.2f", cost)
         lblStreet.text = street
         lblCity.text = city
         lblPostal.text = postal
         lblCountry.text = country
         lblDate.text = dateString
         lblTime.text = time
-        lblHours.text = String(Float(hoursParked))
-        lblCost.text = "$" + String(Float(cost))
+        lblHours.text = String(hoursParked)
+        
     }
     
     /*************************************************************
@@ -62,7 +66,7 @@ class ConfirmParkingVC : UIViewController {
      * Description: Obtians Current Date and Time
     *************************************************************/
     func getCurrentDateAndTime() {
-        let date = Date()
+        date = Date()
         let yearmoday = DateFormatter()
         yearmoday.dateFormat = "yyyy-MM-dd"
         let newTime = DateFormatter()
