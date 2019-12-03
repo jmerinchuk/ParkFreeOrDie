@@ -150,6 +150,10 @@ class User {
         if(self.creditCardExpiryAsDate() == nil){
             return "Invalid expiry date format (ie. 01/2021')"
         }
+        //if the date is expired:
+        if(self.creditCardExpiryAsDate()! < Date()){
+            return "Your credit card has expired!"
+        }
         
         return nil
     }
