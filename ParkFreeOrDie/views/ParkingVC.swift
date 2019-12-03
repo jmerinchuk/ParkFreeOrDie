@@ -52,8 +52,8 @@ class ParkingVC : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     *************************************************************/
     func populatePicker(){
         //initialize array data
-        hoursData = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
-        hoursAmount = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+        hoursData = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"]
+        hoursAmount = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
         
         self.hoursPicker.delegate = self
         self.hoursPicker.dataSource = self

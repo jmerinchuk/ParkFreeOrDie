@@ -64,6 +64,8 @@ class LoginVC : UIViewController {
                 let customViewControllersArray : NSArray = [tabBarVC]
                 self.navigationController?.viewControllers = customViewControllersArray as! [UIViewController]
                 
+                
+                
                 //let appdelegate = UIApplication.shared.delegate as! AppDelegate
                 //appdelegate.window.rootViewController = navigationController
                 self.navigationController?.popToRootViewController(animated: true)

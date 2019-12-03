@@ -24,11 +24,7 @@ class ReceiptTVC: UITableViewController {
     *************************************************************/
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //for long press, use the class UILongPressGestureRecognizer
-        //and use:
-        //pressGesture.minimumPressDuration = 1.0
-        //dont forget to have the press handler class accept a UILongPressGestureRecognizer parameter.
+
         let pressGesture : UITapGestureRecognizer = UITapGestureRecognizer(target : self, action: #selector(self.handleReceiptPress))
         self.tableView.addGestureRecognizer(pressGesture)
     }
@@ -83,7 +79,7 @@ class ReceiptTVC: UITableViewController {
             
             cell.lblTitle?.text = receipt.street
             
-            cell.lblTotal?.text = "$ \(String(format: "%.2f", receipt.cost))"
+            cell.lblTotal?.text = "$ \(String(receipt.cost))"
 
             cell.lblSubtitle?.text = receipt.getDateAsString()
         }
@@ -114,9 +110,9 @@ class ReceiptTVC: UITableViewController {
      * Method: addReceipt(indexPath)
      * Description: Adds a new receipt to ReceiptEntity Table
      *****************************************************************/
-    private func addReceipt(hoursParked: Int, street: String, city: String, postal: String, country: String, licensePlate: String, date: Date) {
+    private func addReceipt(hoursParked: Int, street: String, city: String, postal: String, country: String, licensePlate: String, date: Date, cost: Int) {
         let newIndex = ReceiptController.getAllReceipts()!.count
-        ReceiptController.createReceipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date)
+        ReceiptController.createReceipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date, cost: cost)
         tableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .top)
     }
     

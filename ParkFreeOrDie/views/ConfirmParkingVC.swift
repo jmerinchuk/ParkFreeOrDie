@@ -48,9 +48,9 @@ class ConfirmParkingVC : UIViewController {
         getCurrentDateAndTime()
         
         cost = ReceiptController.getCost(hours: hoursParked, date: date)
-        lblPlate.text = "PLATE"
-        lblCost.text = "$" + String(format: "%.2f", ReceiptController.getCost(hours: hoursParked, date: date))
-        lblTimesParked.text = String(format: "%.2f", cost)
+        lblPlate.text = UserController.getLoggedInUser()!.licensePlate
+        lblCost.text = "$" + String(ReceiptController.getCost(hours: hoursParked, date: date))
+        lblTimesParked.text = String(ReceiptController.getNumberOfReceiptsForMonth(date: date))
         lblStreet.text = street
         lblCity.text = city
         lblPostal.text = postal
@@ -84,7 +84,7 @@ class ConfirmParkingVC : UIViewController {
         // Get LicensePlate from User
         
         // Pass Receipt to Receipt Controller
-        ReceiptController.createReceipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date)
+        ReceiptController.createReceipt(hoursParked: hoursParked, street: street, city: city, postal: postal, country: country, licensePlate: licensePlate, date: date, cost: cost)
         
         // Manage Alert Box
        let alertController = UIAlertController(title: "Success!", message: "This is the parking you are looking for", preferredStyle: .alert)

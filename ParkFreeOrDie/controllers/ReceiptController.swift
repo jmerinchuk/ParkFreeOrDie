@@ -80,7 +80,7 @@ public class ReceiptController {
      * Method: createReceipt()
      * Description: Inserts new receipt into database
     *************************************************************/
-    static func createReceipt(hoursParked: Int, street: String, city: String, postal: String, country: String, licensePlate: String, date: Date){
+    static func createReceipt(hoursParked: Int, street: String, city: String, postal: String, country: String, licensePlate: String, date: Date, cost: Int){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -99,7 +99,7 @@ public class ReceiptController {
             newreceipt.setValue(country, forKey: "country")
             newreceipt.setValue(licensePlate, forKey: "licensePlate")
             newreceipt.setValue(date, forKey: "date")
-            newreceipt.setValue(ReceiptController.getCost(hours: hoursParked, date: date), forKey: "cost")
+            newreceipt.setValue(cost, forKey: "cost")
             
             // Attempt to save data and provide error if it failed
             do {
