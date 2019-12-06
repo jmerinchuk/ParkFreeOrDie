@@ -221,6 +221,12 @@ extension MapVC : CLLocationManagerDelegate {
             break
         case .denied:
             // change permission, loop to ask for permission until access granted, tell to uninstall
+            let alertController = UIAlertController(title: "Error!", message: "You must give Park Or Die location permissions.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { (alert: UIAlertAction!) in
+                 self.navigationController?.popToRootViewController(animated: true)
+            })
+            alertController.addAction(okAction)
+            present(alertController, animated: true)
             break
         case .notDetermined:
             // if user has not given permission settings yet, ask
